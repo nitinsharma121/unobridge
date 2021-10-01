@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickHandler"
+            type="com.provider.unobridge.ui.fragments.auth.OtpVerificationFragment.ClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clParent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_view_color">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.06" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.94" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.60" />
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            android:visibility="invisible"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:onClick="@{() -> clickHandler.backPress()}"
+                android:paddingEnd="@dimen/_10sdp"
+                android:src="@drawable/ic_back_custom_grey" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/userplaceholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clMobile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/gotham_pro"
+                android:lineSpacingMultiplier="1.3"
+                android:text="Enter OTP sent \nto your mobile number"
+                android:textAlignment="center"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/sp24"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.chaos.view.PinView
+                android:id="@+id/pvOTP"
+                style="@style/PinWidget.PinView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:cursorVisible="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:inputType="number"
+                android:itemBackground="@drawable/otp_bg"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="italic"
+                android:theme="@style/ltalic"
+                app:cursorColor="@color/purple_500"
+                app:cursorWidth="2dp"
+                app:hideLineWhenFilled="true"
+                app:itemCount="6"
+                app:itemHeight="@dimen/_42sdp"
+                app:itemRadius="@dimen/_4sdp"
+                app:itemSpacing="10dp"
+                app:itemWidth="@dimen/_42sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                app:lineColor="@android:color/white"
+                app:viewType="rectangle" />
+
+
+            <TextView
+                android:id="@+id/tvResend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:elegantTextHeight="true"
+                android:enabled="false"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="center"
+                android:text="The Otp will expire in 01:33"
+                android:textColor="@color/resend_color"
+                android:textSize="@dimen/_16sdp"
+                android:theme="@style/pro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pvOTP" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo">
+
+            <ImageView
+                android:id="@+id/ivDone"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:src="@drawable/confirmation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/carbon_green_800" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:fontFamily="@font/gotham_pro"
+                android:text="You are ready to start!"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/sp24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivDone" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/llContinue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline2"
+            app:layout_constraintStart_toEndOf="@id/guideline1">
+
+            <carbon.widget.TextView
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_size_login"
+                android:background="@drawable/button_bg"
+                android:fontFamily="@font/gothampro_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:onClick="@{() -> clickHandler.onClickOTPSend()}"
+                android:text="Signup"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold" />
+
+            <include layout="@layout/button_under_glow" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    </ScrollView>-->
+</layout>

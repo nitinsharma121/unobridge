@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "730357043599",
+    "project_id": "today-cabs",
+    "storage_bucket": "today-cabs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730357043599:android:2dc594e4e973ece6217bfa",
+        "android_client_info": {
+          "package_name": "com.provider.todayCabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730357043599-8bq8p7ntg7kvrpt22nrheefa84o772uv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.provider.todayCabs",
+            "certificate_hash": "560813c63702ac0b0deddc1a79db6de4c0477812"
+          }
+        },
+        {
+          "client_id": "730357043599-k7nomfvad9at3m1vcpjvjno6qpkl0boj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.provider.todayCabs",
+            "certificate_hash": "d2e20a10c5ffad74654dac1fda0ccb51d7bbd23e"
+          }
+        },
+        {
+          "client_id": "730357043599-81iuhvc972mmjffd1o24l21l74ad5d3f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpFg_e99PiAazmABvbdwiFYVgWRdptpIk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730357043599-81iuhvc972mmjffd1o24l21l74ad5d3f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

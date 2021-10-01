@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="image"
+            type="String" />
+
+        <variable
+            name="clickHandler"
+            type="com.provider.unobridge.ui.fragments.account.AccountFragment.ClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_view_color">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gStartOuter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gEndOuter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_constraintEnd_toEndOf="@id/gEndOuter"
+            app:layout_constraintStart_toStartOf="@id/gStartOuter"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:onClick="@{()->clickHandler.onBackPress()}"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tvStateTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/averta_bold"
+                    android:text="Account"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivBack"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmerFrameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray_view_color"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/account_shimmer" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:paddingBottom="@dimen/margin_20"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/glTopHorizontal">
+
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.92" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.08" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gStartOne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.06" />
+
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gEndTwo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.94" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/cvUser"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:src="@color/shimmer_view_color"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/averta_bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cvUser" />
+
+                    <carbon.widget.ConstraintLayout
+                        android:id="@+id/clMobileNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="41dp"
+                        android:layout_marginTop="@dimen/margin_50"
+                        android:background="@color/white"
+                        android:elevation="@dimen/margin_2"
+                        android:orientation="horizontal"
+                        app:carbon_cornerRadius="@dimen/margin_15"
+                        app:layout_constraintEnd_toEndOf="@id/gEnd"
+                        app:layout_constraintStart_toStartOf="@id/gStart"
+                        app:layout_constraintTop_toBottomOf="@id/tvUsername">
+
+                        <carbon.widget.ImageView
+                            android:id="@+id/ivPic"
+                            android:layout_width="@dimen/dp24"
+                            android:layout_height="@dimen/dp24"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_20"
+                            android:src="@drawable/ic_mobile_number"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tvMobile"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvMobile"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_15"
+                            android:fontFamily="@font/averta_semibold"
+                            android:text="@string/mobile_number"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_11"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/ivNo"
+                            app:layout_constraintStart_toEndOf="@id/ivPic"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/ivNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/margin_15"
+                            android:fontFamily="@font/averta_regular_italic"
+                            android:textAllCaps="true"
+                            android:textColor="#B0B9C8"
+                            android:textSize="@dimen/sp_11"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </carbon.widget.ConstraintLayout>
+
+                    <carbon.widget.ConstraintLayout
+                        android:id="@+id/lEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="41dp"
+                        android:layout_marginTop="@dimen/margin_20"
+                        android:background="@color/white"
+                        android:elevation="@dimen/margin_2"
+                        android:orientation="horizontal"
+                        app:carbon_cornerRadius="@dimen/margin_15"
+                        app:layout_constraintEnd_toEndOf="@id/gEnd"
+                        app:layout_constraintStart_toStartOf="@id/gStart"
+                        app:layout_constraintTop_toBottomOf="@id/clMobileNumber">
+
+                        <carbon.widget.ImageView
+                            android:id="@+id/ivEmail"
+                            android:layout_width="@dimen/dp26"
+                            android:layout_height="@dimen/dp26"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_20"
+                            android:src="@drawable/ic_contact_us"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tvMobile"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tvEmail"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_15"
+                            android:fontFamily="@font/averta_semibold"
+                            android:text="@string/email"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_11"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/ivNo"
+                            app:layout_constraintStart_toEndOf="@id/ivEmail"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvUserEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/margin_15"
+                            android:fontFamily="@font/averta_regular_italic"
+                            android:textAllCaps="false"
+                            android:textColor="#B0B9C8"
+                            android:textSize="@dimen/sp_11"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </carbon.widget.ConstraintLayout>
+
+                    <carbon.widget.LinearLayout
+                        android:id="@+id/lAadharDetails"
+                        android:layout_width="0dp"
+                        android:layout_height="41dp"
+                        android:layout_marginTop="@dimen/margin_20"
+                        android:background="@color/white"
+                        android:elevation="@dimen/margin_2"
+                        android:onClick="@{()->clickHandler.onClickAaadharDetails()}"
+                        android:orientation="horizontal"
+                        app:carbon_cornerRadius="@dimen/margin_15"
+                        app:layout_constraintEnd_toEndOf="@id/gEnd"
+                        app:layout_constraintStart_toStartOf="@id/gStart"
+                        app:layout_constraintTop_toBottomOf="@id/lEmail">
+
+                        <carbon.widget.ImageView
+                            android:layout_width="@dimen/dp24"
+                            android:layout_height="@dimen/dp24"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_20"
+                            android:src="@drawable/aadhar_placeholder" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_15"
+                            android:fontFamily="@font/averta_semibold"
+                            android:text="@string/aadhar_details"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_11" />
+
+                    </carbon.widget.LinearLayout>
+
+
+                    <carbon.widget.LinearLayout
+                        android:id="@+id/lVehicleDetails"
+                        android:layout_width="0dp"
+                        android:layout_height="41dp"
+                        android:layout_marginTop="@dimen/margin_20"
+                        android:background="@color/white"
+                        android:elevation="@dimen/margin_2"
+                        android:onClick="@{()->clickHandler.onClickVehicleDetails()}"
+                        android:orientation="horizontal"
+                        app:carbon_cornerRadius="@dimen/margin_15"
+                        app:layout_constraintEnd_toEndOf="@id/gEnd"
+                        app:layout_constraintStart_toStartOf="@id/gStart"
+                        app:layout_constraintTop_toBottomOf="@id/lAadharDetails">
+
+                        <carbon.widget.ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_20"
+                            android:src="@drawable/ic_baseline_drive_eta_24" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_15"
+                            android:fontFamily="@font/averta_semibold"
+                            android:text="@string/vehicle_details"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_11" />
+
+                    </carbon.widget.LinearLayout>
+
+
+                    <carbon.widget.LinearLayout
+                        android:id="@+id/lContactUs"
+                        android:layout_width="0dp"
+                        android:layout_height="41dp"
+                        android:layout_marginTop="@dimen/margin_20"
+                        android:background="@color/white"
+                        android:elevation="@dimen/margin_2"
+                        android:orientation="horizontal"
+                        app:carbon_cornerRadius="@dimen/margin_15"
+                        app:layout_constraintEnd_toEndOf="@id/gEnd"
+                        app:layout_constraintStart_toStartOf="@id/gStart"
+                        app:layout_constraintTop_toBottomOf="@id/lVehicleDetails">
+
+                        <carbon.widget.ImageView
+                            android:layout_width="@dimen/dp24"
+                            android:layout_height="@dimen/dp24"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_20"
+                            android:src="@drawable/ic_contact_us" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_15"
+                            android:fontFamily="@font/averta_semibold"
+                            android:text="@string/contact_us"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_11" />
+
+                    </carbon.widget.LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvTermsOfService"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_40"
+                        android:fontFamily="@font/averta_regular"
+                        android:text="@string/terms_of_service"
+                        android:textColor="#B0B9C8"
+                        android:textSize="@dimen/sp14"
+                        app:layout_constraintEnd_toEndOf="@id/gEnd"
+                        app:layout_constraintStart_toStartOf="@id/gStart"
+                        app:layout_constraintTop_toBottomOf="@id/lContactUs" />
+
+                    <View
+                        android:id="@+id/vLineTwo"
+                        android:layout_width="0dp"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="@dimen/margin_15"
+                        android:background="#E6EAF5"
+                        app:layout_constraintStart_toStartOf="@id/tvTermsOfService"
+                        app:layout_constraintTop_toBottomOf="@id/tvTermsOfService" />
+
+
+                    <TextView
+                        android:id="@+id/tvLogout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_20"
+                        android:fontFamily="@font/averta_regular"
+                        android:onClick="@{()->clickHandler.logout()}"
+                        android:text="@string/logout"
+                        android:textColor="#B0B9C8"
+                        android:textSize="@dimen/sp14"
+                        app:layout_constraintEnd_toEndOf="@id/gEnd"
+                        app:layout_constraintStart_toStartOf="@id/gStart"
+                        app:layout_constraintTop_toBottomOf="@id/vLineTwo" />
+
+                    <View
+                        android:id="@+id/vLineThree"
+                        android:layout_width="0dp"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="@dimen/margin_15"
+                        android:background="#E6EAF5"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="@id/tvLogout"
+                        app:layout_constraintTop_toBottomOf="@id/tvLogout" />
+
+
+                    <TextView
+                        android:id="@+id/tvDeleteAccout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_20"
+                        android:fontFamily="@font/averta_regular"
+                        android:text="@string/delete_account"
+                        android:textColor="#FF513D"
+                        android:textSize="@dimen/sp14"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@id/gEnd"
+                        app:layout_constraintStart_toStartOf="@id/gStart"
+                        app:layout_constraintTop_toBottomOf="@id/vLineThree" />
+
+                    <View
+                        android:id="@+id/vLineFour"
+                        android:layout_width="0dp"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="@dimen/margin_15"
+                        android:background="#E6EAF5"
+                        app:layout_constraintStart_toStartOf="@id/tvDeleteAccout"
+                        app:layout_constraintTop_toBottomOf="@id/tvDeleteAccout" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

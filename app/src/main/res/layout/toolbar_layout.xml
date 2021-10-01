@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:elevation="10dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="@color/transparent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9" />
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/back_button_size"
+                android:layout_height="@dimen/back_button_size"
+                android:layout_gravity="center"
+                android:padding="@dimen/margin_5"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_back"
+                app:tint="@color/black"
+                app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+                app:layout_constraintStart_toEndOf="@id/gStart"
+                app:layout_constraintTop_toTopOf="@id/tvTitle" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/averta_bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_28"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSubTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_20"
+                android:layout_marginTop="@dimen/margin_15"
+                android:fontFamily="@font/averta_regular"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp13"
+                app:layout_constraintEnd_toEndOf="@id/gEnd"
+                app:layout_constraintStart_toEndOf="@id/gStart"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</layout>

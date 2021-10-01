@@ -1,0 +1,19 @@
+<carbon.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/clNormalView"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/margin_180"
+    android:background="#F3F4F5"
+    android:gravity="center"
+    app:carbon_stroke="#E8EBED"
+    app:carbon_strokeWidth="1dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@drawable/add_pic" />
+</carbon.widget.LinearLayout>

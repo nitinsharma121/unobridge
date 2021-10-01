@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_dashboard"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.provider.unobridge.ui.fragments.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" />
+
+    <fragment
+        android:id="@+id/notifications_fragment"
+        android:name="com.provider.unobridge.ui.fragments.notifications.NotificationsFragment"
+        android:label="notifications_fragment"
+        tools:layout="@layout/notifications_fragment" />
+
+    <fragment
+        android:id="@+id/rides_fragment"
+        android:name="com.provider.unobridge.ui.fragments.rides.RidesFragment"
+        android:label="rides_fragment"
+        tools:layout="@layout/rides_fragment" />
+
+    <fragment
+        android:id="@+id/account_fragment"
+        android:name="com.provider.unobridge.ui.fragments.account.AccountFragment"
+        android:label="account_fragment"
+        tools:layout="@layout/account_fragment" />
+
+    <fragment
+        android:id="@+id/add_ride_fragment"
+        android:name="com.provider.unobridge.ui.fragments.addRides.AddRideFragment"
+        android:label="add_ride_fragment"
+        tools:layout="@layout/add_ride_fragment" />
+
+    <fragment
+        android:id="@+id/aadhar_details_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.AaadharDetailsFragment"
+        android:label="aadhar_details_fragment"
+        tools:layout="@layout/aadhar_details_fragment" />
+    <fragment
+        android:id="@+id/vehicle_details_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.VehicleDetailsFragment"
+        android:label="vehicle_details_fragment"
+        tools:layout="@layout/vehicle_details_fragment" />
+
+    <dialog
+        android:id="@+id/subscription_fragment"
+        android:name="com.provider.unobridge.ui.fragments.SubscriptionFragment"
+        android:label="subscription_fragment"
+        tools:layout="@layout/subscription_fragment" />
+
+
+
+</navigation>

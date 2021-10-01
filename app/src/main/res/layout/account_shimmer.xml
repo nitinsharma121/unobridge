@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/margin_20"
+    android:background="@color/gray_view_color"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/glTopHorizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gStartOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.06" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gEndTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.94" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/cvUser"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@color/shimmer_view_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/averta_bold"
+        android:background="@color/shimmer_view_color"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvUser" />
+
+    <carbon.widget.ConstraintLayout
+        android:id="@+id/clMobileNumber"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="@dimen/margin_50"
+        android:background="@color/shimmer_view_color"
+        android:elevation="@dimen/margin_2"
+        android:orientation="horizontal"
+        app:carbon_cornerRadius="@dimen/margin_15"
+        app:layout_constraintEnd_toEndOf="@id/gEnd"
+        app:layout_constraintStart_toStartOf="@id/gStart"
+        app:layout_constraintTop_toBottomOf="@id/tvUsername">
+
+
+    </carbon.widget.ConstraintLayout>
+
+    <carbon.widget.ConstraintLayout
+        android:id="@+id/lEmail"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="@dimen/margin_20"
+        android:background="@color/shimmer_view_color"
+        android:elevation="@dimen/margin_2"
+        android:orientation="horizontal"
+        app:carbon_cornerRadius="@dimen/margin_15"
+        app:layout_constraintEnd_toEndOf="@id/gEnd"
+        app:layout_constraintStart_toStartOf="@id/gStart"
+        app:layout_constraintTop_toBottomOf="@id/clMobileNumber">
+
+    </carbon.widget.ConstraintLayout>
+
+    <carbon.widget.LinearLayout
+        android:id="@+id/lAadharDetails"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="@dimen/margin_20"
+        android:background="@color/shimmer_view_color"
+        android:elevation="@dimen/margin_2"
+        android:orientation="horizontal"
+        app:carbon_cornerRadius="@dimen/margin_15"
+        app:layout_constraintEnd_toEndOf="@id/gEnd"
+        app:layout_constraintStart_toStartOf="@id/gStart"
+        app:layout_constraintTop_toBottomOf="@id/lEmail">
+
+
+
+    </carbon.widget.LinearLayout>
+
+
+    <carbon.widget.LinearLayout
+        android:id="@+id/lVehicleDetails"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="@dimen/margin_20"
+        android:background="@color/shimmer_view_color"
+        android:elevation="@dimen/margin_2"
+        android:orientation="horizontal"
+        app:carbon_cornerRadius="@dimen/margin_15"
+        app:layout_constraintEnd_toEndOf="@id/gEnd"
+        app:layout_constraintStart_toStartOf="@id/gStart"
+        app:layout_constraintTop_toBottomOf="@id/lAadharDetails">
+
+
+
+    </carbon.widget.LinearLayout>
+
+
+    <carbon.widget.LinearLayout
+        android:id="@+id/lContactUs"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="@dimen/margin_20"
+        android:elevation="@dimen/margin_2"
+        android:background="@color/shimmer_view_color"
+        android:orientation="horizontal"
+        app:carbon_cornerRadius="@dimen/margin_15"
+        app:layout_constraintEnd_toEndOf="@id/gEnd"
+        app:layout_constraintStart_toStartOf="@id/gStart"
+        app:layout_constraintTop_toBottomOf="@id/lVehicleDetails">
+
+
+
+    </carbon.widget.LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTermsOfService"
+        android:layout_width="@dimen/_150sdp"
+        android:background="@color/shimmer_view_color"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_40"
+        android:fontFamily="@font/averta_regular"
+        android:text="@string/terms_of_service"
+        android:textColor="#B0B9C8"
+        android:textSize="@dimen/sp14"
+        app:layout_constraintStart_toStartOf="@id/gStart"
+        app:layout_constraintTop_toBottomOf="@id/lContactUs" />
+
+
+    <TextView
+        android:id="@+id/tvLogout"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_30"
+        android:fontFamily="@font/averta_regular"
+        android:textColor="#B0B9C8"
+        android:background="@color/shimmer_view_color"
+        android:textSize="@dimen/sp14"
+        app:layout_constraintStart_toStartOf="@id/gStart"
+        app:layout_constraintTop_toBottomOf="@id/tvTermsOfService" />
+
+
+
+    <TextView
+        android:id="@+id/tvDeleteAccout"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_30"
+        android:fontFamily="@font/averta_regular"
+        android:textColor="#FF513D"
+        android:background="@color/shimmer_view_color"
+        android:textSize="@dimen/sp14"
+        app:layout_constraintStart_toStartOf="@id/gStart"
+        app:layout_constraintTop_toBottomOf="@id/tvLogout" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

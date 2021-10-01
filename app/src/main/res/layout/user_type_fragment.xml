@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <variable
+            name="clickHandler"
+            type="com.provider.unobridge.ui.fragments.profile.UserTypeFragment.ClickHandler" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9" />
+
+
+            <include
+                android:id="@+id/tToolbar"
+                layout="@layout/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_toolbar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAgent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_50"
+                app:layout_constraintEnd_toEndOf="@id/gEnd"
+                app:layout_constraintStart_toStartOf="@id/gStart"
+                app:layout_constraintTop_toBottomOf="@id/tToolbar">
+
+
+                <carbon.widget.ConstraintLayout
+                    android:id="@+id/cvAgent"
+                    android:layout_width="@dimen/margin_100"
+                    android:layout_height="@dimen/margin_100"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/user_type_bg"
+                    android:elevation="2dp"
+                    android:onClick="@{()->clickHandler.onClickAgent()}"
+                    app:carbon_cornerRadius="@dimen/margin_15"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/ivAgent"
+                        android:layout_width="@dimen/margin_60"
+                        android:layout_height="@dimen/margin_60"
+                        android:src="@drawable/agent_selector"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </carbon.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:id="@+id/tvAgent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:fontFamily="@font/averta_regular"
+                    android:onClick="@{()->clickHandler.onClickAgent()}"
+                    android:text="@string/agent"
+                    android:textColor="@color/blue_black_color_selctor"
+                    android:textSize="@dimen/sp_16"
+                    app:layout_constraintEnd_toEndOf="@id/cvAgent"
+                    app:layout_constraintStart_toStartOf="@id/cvAgent"
+                    app:layout_constraintTop_toBottomOf="@id/cvAgent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDriver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_50"
+                app:layout_constraintEnd_toEndOf="@id/gEnd"
+                app:layout_constraintStart_toStartOf="@id/gStart"
+                app:layout_constraintTop_toBottomOf="@id/clAgent">
+
+
+                <carbon.widget.ConstraintLayout
+                    android:id="@+id/cvDriver"
+                    android:layout_width="@dimen/margin_100"
+                    android:layout_height="@dimen/margin_100"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/user_type_bg"
+                    android:elevation="1dp"
+                    android:onClick="@{()->clickHandler.onClickDriver()}"
+                    app:carbon_cornerRadius="@dimen/margin_15"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/ivDriver"
+                        android:layout_width="@dimen/margin_60"
+                        android:layout_height="@dimen/margin_60"
+                        android:src="@drawable/driver_selector"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </carbon.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tvDriver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/averta_regular"
+                    android:onClick="@{()->clickHandler.onClickDriver()}"
+                    android:text="@string/driver"
+                    android:textColor="@color/blue_black_color_selctor"
+                    android:textSize="@dimen/sp_16"
+                    app:layout_constraintEnd_toEndOf="@id/cvDriver"
+                    app:layout_constraintStart_toStartOf="@id/cvDriver"
+                    app:layout_constraintTop_toBottomOf="@id/cvDriver" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

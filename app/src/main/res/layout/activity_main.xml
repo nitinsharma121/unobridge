@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickHandler"
+            type="com.provider.unobridge.ui.activities.MainActivity.ClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dashBoardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        tools:context=".MainActivity">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/main_dash_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/nav_dashboard" />
+
+
+        <RelativeLayout
+            android:id="@+id/parentLayoutBotom"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <LinearLayout
+                android:id="@+id/gradientLayoutBottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/footer_gradient_black"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/vBottomShadow"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_above="@id/bottomNav"
+                android:background="@drawable/bottom_nav_shadow"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:id="@+id/bottomNav"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:paddingHorizontal="25dp">
+
+                <ImageView
+                    android:id="@+id/bDashboard"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="center"
+                    android:onClick="@{()->clickHandler.goToHome()}"
+                    android:src="@drawable/ic_home_white">
+
+                </ImageView>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:src="@drawable/menu_add_button_bg"
+                    android:visibility="invisible">
+
+                </ImageView>
+
+
+                <ImageView
+                    android:id="@+id/bNotifications"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="center"
+                    android:onClick="@{()->clickHandler.goToNotifications()}"
+                    android:src="@drawable/ic_bell">
+
+                </ImageView>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_7sdp"
+            android:scaleType="center"
+            android:onClick="@{()->clickHandler.add()}"
+            android:src="@drawable/menu_add_button_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.990">
+
+        </ImageView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

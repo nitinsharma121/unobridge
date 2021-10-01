@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickHandler"
+            type="com.provider.unobridge.ui.fragments.SubscriptionFragment.ClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_round">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glGuidelineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.08" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glGuidelineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.92" />
+
+        <FrameLayout
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintStart_toEndOf="@id/glGuidelineStart"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/dp18"
+                android:layout_height="@dimen/dp18"
+                android:src="@drawable/ic_back"
+                app:tint="@color/black" />
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/ivSubscription"
+            android:layout_width="@dimen/dp130"
+            android:layout_height="@dimen/dp130"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/subscribe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBack" />
+
+        <TextView
+            android:id="@+id/tvBasic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/averta_bold"
+            android:text="Basic"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp24"
+            app:layout_constraintEnd_toEndOf="@id/ivSubscription"
+            app:layout_constraintStart_toStartOf="@id/ivSubscription"
+            app:layout_constraintTop_toBottomOf="@id/ivSubscription" />
+
+        <TextView
+            android:id="@+id/tvGetPremium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp5"
+            android:fontFamily="@font/averta_regular"
+            android:gravity="center"
+            android:text="@string/subsription_text"
+            android:textColor="@color/txt_color_grey"
+            android:textSize="@dimen/sp14"
+            app:layout_constraintEnd_toEndOf="@id/glGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/glGuidelineStart"
+            app:layout_constraintTop_toBottomOf="@+id/tvBasic" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="@id/glGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/glGuidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/tvGetPremium">
+
+            <TextView
+                android:id="@+id/tvDollar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/averta_semibold"
+                android:text="@string/txt_dollar_sign"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/sp14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp10"
+                android:fontFamily="@font/averta_bold"
+                android:paddingHorizontal="@dimen/dp5"
+                android:text="@string/txt_20"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/sp34"
+                app:layout_constraintStart_toEndOf="@+id/tvDollar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="per user / month"
+            android:textColor="@color/txt_color_grey"
+            android:textSize="@dimen/sp14"
+            app:layout_constraintEnd_toEndOf="@id/cvPrice"
+            app:layout_constraintStart_toStartOf="@id/cvPrice"
+            app:layout_constraintTop_toBottomOf="@id/cvPrice" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cvFeatures"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            app:layout_constraintEnd_toEndOf="@id/glGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/glGuidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/tvMonth">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/cFirst"
+                android:layout_width="@dimen/_6sdp"
+                android:layout_height="@dimen/_6sdp"
+                android:src="@color/purple_500"
+                app:layout_constraintBottom_toBottomOf="@id/tvFirst"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvFirst" />
+
+            <TextView
+                android:id="@+id/tvFirst"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/averta_regular"
+                android:text="@string/get_daily_rides_from_all_states"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp18"
+                app:layout_constraintStart_toEndOf="@id/cFirst"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/cSecond"
+                android:layout_width="@dimen/_6sdp"
+                android:layout_height="@dimen/_6sdp"
+                android:src="@color/purple_500"
+                app:layout_constraintBottom_toBottomOf="@id/tvSecond"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvSecond" />
+
+            <TextView
+                android:id="@+id/tvSecond"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/averta_regular"
+                android:text="@string/get_realtime_alerts_for_all_rides_in_whole_time"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp18"
+                app:layout_constraintStart_toEndOf="@id/cSecond"
+                app:layout_constraintTop_toBottomOf="@id/tvFirst" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/cThird"
+                android:layout_width="@dimen/_6sdp"
+                android:layout_height="@dimen/_6sdp"
+                android:src="@color/purple_500"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tvThird"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvThird" />
+
+            <TextView
+                android:id="@+id/tvThird"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/averta_regular"
+                android:text="@string/get_daily_rides_from_all_states"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp18"
+                app:layout_constraintStart_toEndOf="@id/cThird"
+                app:layout_constraintTop_toBottomOf="@id/tvSecond" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_size_login"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/gothampro_medium"
+            android:gravity="center"
+            android:onClick="@{()->clickHandler.onSubscribe()}"
+            android:text="@string/subscribe"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/glGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/glGuidelineStart"
+            app:layout_constraintTop_toBottomOf="@+id/cvFeatures" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

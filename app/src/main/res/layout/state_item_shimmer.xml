@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.provider.unobridge.data.StateData" />
+    </data>
+
+    <carbon.widget.ConstraintLayout
+        android:id="@+id/clView"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:paddingBottom="@dimen/_5sdp"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/_4sdp"
+      >
+
+        <carbon.widget.ConstraintLayout
+            android:layout_width="0dp"
+            app:carbon_cornerRadius="@dimen/_20sdp"
+            android:id="@+id/clFirst"
+            android:layout_marginEnd="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/clSecond"
+            android:layout_height="match_parent"
+            android:background="@color/shimmer_view_color"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+            <carbon.widget.ImageView
+                android:id="@+id/ivPic"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_85sdp"
+                android:scaleType="centerCrop"
+                app:cardCornerRadius="@dimen/_14sdp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvStateName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:fontFamily="@font/averta_bold"
+                android:background="@color/shimmer_view_color"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivPic" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/averta_regular"
+                android:textColor="@color/grey"
+                android:background="@color/shimmer_view_color"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvStateName" />
+        </carbon.widget.ConstraintLayout>
+
+        <carbon.widget.ConstraintLayout
+            android:layout_width="0dp"
+            app:carbon_cornerRadius="@dimen/_20sdp"
+            app:layout_constraintStart_toEndOf="@id/clFirst"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_height="match_parent"
+            android:background="@color/shimmer_view_color"
+            android:id="@+id/clSecond"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+            <carbon.widget.ImageView
+                android:id="@+id/ivPicSecond"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_85sdp"
+                android:background="@color/shimmer_view_color"
+                android:scaleType="centerCrop"
+                app:cardCornerRadius="@dimen/_14sdp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvStateNameSecond"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:fontFamily="@font/averta_bold"
+                android:background="@color/shimmer_view_color"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivPicSecond" />
+
+            <TextView
+                android:id="@+id/tvDescriptionSecond"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/averta_regular"
+                android:textColor="@color/grey"
+                android:background="@color/shimmer_view_color"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvStateNameSecond" />
+        </carbon.widget.ConstraintLayout>
+
+    </carbon.widget.ConstraintLayout>
+</layout>

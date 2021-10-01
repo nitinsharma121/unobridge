@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.provider.unobridge.data.StateData" />
+    </data>
+
+    <carbon.widget.ConstraintLayout
+        android:id="@+id/clView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@color/white"
+        app:carbon_cornerRadius="@dimen/_24sdp"
+        app:carbon_elevation="@dimen/_10sdp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivAuthorImage"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:src="@drawable/userplaceholder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:fontFamily="@font/averta_bold"
+            android:text="@string/admin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@id/ivAuthorImage"
+            app:layout_constraintEnd_toStartOf="@id/ivMeu"
+            app:layout_constraintStart_toEndOf="@id/ivAuthorImage"
+            app:layout_constraintTop_toTopOf="@id/ivAuthorImage" />
+
+        <ImageView
+            android:id="@+id/ivMeu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:src="@drawable/ic_baseline_more_horiz_24"
+            app:layout_constraintBottom_toBottomOf="@id/ivAuthorImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivAuthorImage"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/tvStateName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/averta_regular"
+            android:text="@string/dummy_long_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAuthorImage" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/averta_regular"
+            android:text="3 minutes ago"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStateName" />
+
+    </carbon.widget.ConstraintLayout>
+</layout>

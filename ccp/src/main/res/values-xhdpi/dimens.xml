@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sp18">18sp</dimen>
+    <dimen name="px72">19sp</dimen>
+    <dimen name="px70">17sp</dimen>
+    <dimen name="px65">16sp</dimen>
+    <dimen name="px60">15sp</dimen>
+    <dimen name="px55">14sp</dimen>
+    <dimen name="px53">13sp</dimen>
+    <dimen name="px52">12sp</dimen>
+    <dimen name="px46">11sp</dimen>
+    <dimen name="google_1x">7dp</dimen>
+    <dimen name="dp17">15dp</dimen>
+    <dimen name="dp15">13dp</dimen>
+    <dimen name="dp10">8dp</dimen>
+    <dimen name="ccp_padding">8dp</dimen>
+</resources>

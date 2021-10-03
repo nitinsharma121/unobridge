@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <carbon.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@color/white"
+        android:elevation="@dimen/_5sdp"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_5sdp"
+        app:carbon_cornerRadius="@dimen/_10sdp">
+
+        <carbon.widget.TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Abc"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp20"
+            android:singleLine="true"
+            android:ellipsize="end"
+            app:carbon_font="@font/averta_bold"
+            app:layout_constraintEnd_toStartOf="@id/ivDone"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <carbon.widget.TextView
+            android:id="@+id/tvContact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="5446543464654"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:carbon_font="@font/averta_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivDone"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:src="@color/carbon_green_600"
+            android:layout_marginEnd="@dimen/_5sdp"
+            app:layout_constraintEnd_toStartOf="@id/tvIsAcive"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <carbon.widget.TextView
+            android:id="@+id/tvIsAcive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Active"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/sp18"
+            app:carbon_font="@font/averta_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </carbon.widget.ConstraintLayout>
+</layout>

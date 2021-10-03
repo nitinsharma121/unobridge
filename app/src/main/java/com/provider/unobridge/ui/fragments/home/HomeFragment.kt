@@ -1,16 +1,19 @@
 package com.provider.unobridge.ui.fragments.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.provider.unobridge.R
+import com.provider.unobridge.base.Prefs
 import com.provider.unobridge.base.ScopedFragment
+import com.provider.unobridge.data.StateData
 import com.provider.unobridge.databinding.HomeFragmentBinding
+import com.provider.unobridge.room.CalculatorDatabase
 import com.provider.unobridge.ui.fragments.account.viewModel.AccountViewModel
 import com.provider.unobridge.ui.fragments.account.viewModel.AccountViewModelFactory
 import org.kodein.di.KodeinAware
@@ -22,6 +25,7 @@ class HomeFragment : ScopedFragment(), KodeinAware {
     private val viewModelFactory: AccountViewModelFactory by instance()
     lateinit var mViewModel: AccountViewModel
     override val kodein by lazy { (activity?.applicationContext as KodeinAware).kodein }
+    val statesAdapter = StatesAdapter(R.layout.state_item)
 
 
     override fun onCreateView(
@@ -35,69 +39,49 @@ class HomeFragment : ScopedFragment(), KodeinAware {
             mBinding = HomeFragmentBinding.inflate(inflater, container, false).apply {
                 clickHandler = ClickHandler()
             }
-            mBinding.shimmerFrameLayout.startShimmer()
-            mViewModel.getStatesList()
         }
         setupObserver()
+        setupAdapter()
+
         return mBinding.root
     }
 
     private fun setupObserver() {
 
-        mViewModel.apply {
-            statesList.observe(viewLifecycleOwner, Observer {
 
-                mBinding.shimmerFrameLayout.stopShimmer()
-                mBinding.shimmerFrameLayout.visibility = View.GONE
-                mBinding.rvStates.visibility = View.VISIBLE
+    }
 
-                mBinding.rvStates.adapter = statesAdapter
-                it.data?.responseStates?.let { it1 -> statesAdapter.setNewItems(it1) }
-                statesAdapter.listenerState = this@HomeFragment.ClickHandler()
-            })
-            showLoading.observe(viewLifecycleOwner, Observer {
-                if (it == true) {
-                    showProgress()
-                } else hideProgress()
-            })
-
-            showMessage.observe(viewLifecycleOwner, Observer {
-                hideProgress()
-                if (!it.isNullOrEmpty()) {
-                    showToast(it)
-                }
-
-            })
-        }
+    fun setupAdapter() {
+        val homeAdapter = StatesAdapter(R.layout.state_item)
+        val list = ArrayList<StateData>()
+        list.add(StateData(R.drawable.ic_sites, getString(R.string.sites)))
+        list.add(StateData(R.drawable.ic_baseline_content_paste_24, getString(R.string.content)))
+        list.add(StateData(R.drawable.ic_customers, getString(R.string.customers)))
+        list.add(StateData(R.drawable.ic_orders, getString(R.string.orders)))
+        list.add(StateData(R.drawable.ic_employee, getString(R.string.employees)))
+        list.add(StateData(R.drawable.icreulatory, getString(R.string.regulartory)))
+        list.add(
+            StateData(
+                R.drawable.ic_baseline_local_grocery_store_24,
+                getString(R.string.store)
+            )
+        )
+        list.add(StateData(R.drawable.ic_baseline_attach_money_24, getString(R.string.money)))
+        mBinding.rvStates.adapter = homeAdapter
+        homeAdapter.setNewItems(list)
+        homeAdapter.listenerState = ClickHandler()
 
     }
 
 
     inner class ClickHandler : StatesAdapter.clickListenerState {
-        fun viewAllRides() {
-            findNavController().navigate(
-                R.id.rides_fragment,
-                bundleOf(getString(R.string.state_name) to getString(R.string.all_states))
-            )
-        }
-
         override fun onClickState(stateName: String, position: Int) {
             findNavController().navigate(
-                R.id.rides_fragment,
-                bundleOf(getString(R.string.state_name) to "${stateName} Rides")
+                R.id.add_ride_fragment,
+                bundleOf(getString(R.string.user_type) to stateName)
             )
 
         }
-
-        fun goToAccount() {
-            findNavController().navigate(R.id.account_fragment)
-        }
-
-        fun addRide() {
-            findNavController().navigate(R.id.add_ride_fragment)
-        }
-
-
     }
 
 

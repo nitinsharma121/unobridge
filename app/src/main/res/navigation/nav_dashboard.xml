@@ -37,21 +37,38 @@
 
     <fragment
         android:id="@+id/aadhar_details_fragment"
-        android:name="com.provider.unobridge.ui.fragments.profile.AaadharDetailsFragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.OrganisationDetailsFragment"
         android:label="aadhar_details_fragment"
-        tools:layout="@layout/aadhar_details_fragment" />
+        tools:layout="@layout/organisation_details_fragment" />
     <fragment
         android:id="@+id/vehicle_details_fragment"
-        android:name="com.provider.unobridge.ui.fragments.profile.VehicleDetailsFragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.DigitalSitesFragment"
         android:label="vehicle_details_fragment"
-        tools:layout="@layout/vehicle_details_fragment" />
+        tools:layout="@layout/digital_sites_fragment" />
+
+    <fragment
+        android:id="@+id/website_view_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.WebsiteViewFragment"
+        android:label="website_view_fragment"
+        tools:layout="@layout/website_view_fragment" />
 
     <dialog
-        android:id="@+id/subscription_fragment"
-        android:name="com.provider.unobridge.ui.fragments.SubscriptionFragment"
-        android:label="subscription_fragment"
-        tools:layout="@layout/subscription_fragment" />
+        android:id="@+id/add_promotoin_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.dialogs.AddPromotionFragment"
+        android:label="add_promotoin_fragment"
+        tools:layout="@layout/add_promotoin_fragment" />
 
+    <dialog
+        android:id="@+id/add_customers_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.dialogs.AddCustomersFragment"
+        android:label="add_customers_fragment"
+        tools:layout="@layout/add_customers_fragment" />
+
+    <dialog
+        android:id="@+id/add_order_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.dialogs.AddOrderFragment"
+        android:label="add_order_fragment"
+        tools:layout="@layout/add_order_fragment" />
 
 
 </navigation>

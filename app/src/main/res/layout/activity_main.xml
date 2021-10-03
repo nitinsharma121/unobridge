@@ -14,7 +14,7 @@
         android:id="@+id/dashBoardContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/transparent"
+        android:background="@color/white"
         tools:context=".MainActivity">
 
         <androidx.fragment.app.FragmentContainerView
@@ -22,110 +22,123 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_10sdp"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:navGraph="@navigation/nav_dashboard" />
 
 
-        <RelativeLayout
-            android:id="@+id/parentLayoutBotom"
+        <LinearLayout
+            android:id="@+id/bottomNav"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/white"
+            android:paddingHorizontal="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-
-            <LinearLayout
-                android:id="@+id/gradientLayoutBottom"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/bSearch"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/footer_gradient_black"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:scaleType="center"
+                android:src="@drawable/ic_baseline_search_24"
+                app:tint="@color/black">
 
-            </LinearLayout>
+            </ImageView>
 
-            <View
-                android:id="@+id/vBottomShadow"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_above="@id/bottomNav"
-                android:background="@drawable/bottom_nav_shadow"
-                android:visibility="gone" />
+            <ImageView
+                android:id="@+id/bDashboard"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->clickHandler.goToHome()}"
+                android:scaleType="center"
+                android:src="@drawable/ic_home"
+                app:tint="@color/black">
 
-
-            <LinearLayout
-                android:id="@+id/bottomNav"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:paddingHorizontal="25dp">
-
-                <ImageView
-                    android:id="@+id/bDashboard"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:scaleType="center"
-                    android:onClick="@{()->clickHandler.goToHome()}"
-                    android:src="@drawable/ic_home_white">
-
-                </ImageView>
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/_5sdp"
-                    android:layout_weight="1"
-                    android:src="@drawable/menu_add_button_bg"
-                    android:visibility="invisible">
-
-                </ImageView>
+            </ImageView>
 
 
-                <ImageView
-                    android:id="@+id/bNotifications"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:scaleType="center"
-                    android:onClick="@{()->clickHandler.goToNotifications()}"
-                    android:src="@drawable/ic_bell">
+            <ImageView
+                android:id="@+id/bNotifications"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="center"
+                android:src="@drawable/ic_user"
+                app:tint="@color/black">
 
-                </ImageView>
+            </ImageView>
 
-            </LinearLayout>
+        </LinearLayout>
 
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rel_shadow"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/rectangle_bg"
+            android:backgroundTint="@color/grey"
+            app:layout_constraintTop_toBottomOf="@id/bottomNav">
+
+            <AutoCompleteTextView
+                android:id="@+id/atCompany"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                android:focusable="false"
+                android:fontFamily="@font/averta_regular"
+                android:inputType="none"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@id/ivLinOne"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-        <ImageView
-            android:id="@+id/add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="@dimen/_7sdp"
-            android:scaleType="center"
-            android:onClick="@{()->clickHandler.add()}"
-            android:src="@drawable/menu_add_button_bg"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.990">
+            <carbon.widget.ImageView
+                android:id="@+id/ivLinOne"
+                android:layout_width="@dimen/dp2"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:background="@color/grey"
+                app:layout_constraintEnd_toStartOf="@id/ivMenu" />
 
-        </ImageView>
+            <carbon.widget.ImageView
+                android:id="@+id/ivMenu"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:src="@drawable/ic_baseline_more_vert_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivLineTwo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <carbon.widget.ImageView
+                android:id="@+id/ivLineTwo"
+                android:layout_width="@dimen/dp2"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/grey"
+                app:layout_constraintEnd_toStartOf="@id/ivAdd" />
+
+            <carbon.widget.ImageView
+                android:id="@+id/ivAdd"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/ic_add_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,8 +5,10 @@ import com.google.gson.annotations.SerializedName
 import com.provider.unobridge.base.Prefs
 import kotlinx.android.parcel.Parcelize
 import okhttp3.MultipartBody
+import java.util.stream.IntStream
 
 data class StateData(val image: Int, val stateName: String)
+data class SitesData(val title: String, val url: String)
 data class RideMessage(val message: String)
 
 

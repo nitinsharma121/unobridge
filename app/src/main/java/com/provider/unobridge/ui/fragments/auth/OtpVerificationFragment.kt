@@ -1,6 +1,5 @@
 package com.provider.unobridge.ui.fragments.auth
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
@@ -11,12 +10,11 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.PhoneAuthProvider
 import com.provider.unobridge.R
-import com.provider.unobridge.base.Prefs
 import com.provider.unobridge.base.ScopedFragment
 import com.provider.unobridge.databinding.OtpFragmentBinding
 import com.provider.unobridge.providers.firebasePhoneAuth.CodeSentStatus
@@ -24,7 +22,6 @@ import com.provider.unobridge.providers.firebasePhoneAuth.FirebaseAuthPhone
 import com.provider.unobridge.providers.firebasePhoneAuth.FirebaseAuthResult
 import com.provider.unobridge.providers.firebasePhoneAuth.SignInResult
 import com.provider.unobridge.ui.activities.AuthHandlerActivity
-import com.provider.unobridge.ui.activities.MainActivity
 import com.provider.unobridge.ui.fragments.auth.viewModel.LoginViewModel
 import com.provider.unobridge.ui.fragments.auth.viewModel.LoginViewModelFactory
 import org.kodein.di.KodeinAware
@@ -59,7 +56,7 @@ class OtpVerificationFragment : ScopedFragment(), FirebaseAuthResult, KodeinAwar
         }
 
         init()
-        setupObserver()
+        mBinding.btnLogin.isEnabled = false
         return mBinding.root
 
     }
@@ -71,12 +68,11 @@ class OtpVerificationFragment : ScopedFragment(), FirebaseAuthResult, KodeinAwar
         resendToken =
             arguments?.get(getString(R.string.resend_token)) as PhoneAuthProvider.ForceResendingToken?
 
-        countDownStart()
+
         mBinding.pvOTP.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if (s?.length == 6) {
-                    ClickHandler().onClickOTPSend()
-                }
+                mBinding.btnLogin.isEnabled = s?.length == 6
+
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -93,62 +89,21 @@ class OtpVerificationFragment : ScopedFragment(), FirebaseAuthResult, KodeinAwar
         }
 
         fun onClickOTPSend() {
-            if (mBinding.pvOTP.text.toString().length == 6) {
-                mBinding.root.requestFocus()
-                hideKeyboard(mBinding.root)
-                mViewModel.showLoading.postValue(true)
-                stopCountDown()
-                val credential = PhoneAuthProvider.getCredential(
-                    verificationCode.toString(), mBinding.pvOTP.text.toString()
-                )
-                authImpl.signInUser(credential)
 
+            if (mBinding.clDone.isVisible) {
+                findNavController().navigate(R.id.user_details_fragment)
             } else {
-                showToast(getString(R.string.valid_otp_msg))
+                mBinding.clMobile.visibility = GONE
+                mBinding.clDone.visibility = VISIBLE
+               mBinding.btnLogin.text="Setup"
+
             }
 
         }
 
-        fun onClickResentOTP() {
-
-            authImpl.sendOtp(
-                arguments?.getString(getString(R.string.mobile_number)).toString(),
-                arguments?.getString(getString(R.string.country_code)).toString()
-            )
-
-        }
-
 
     }
 
-
-    private fun countDownStart() {
-        var secondsCount = 60
-        runnable = object : Runnable {
-            override fun run() {
-                try {
-                    handler.postDelayed(this, 1000)
-                    secondsCount--
-                    if (secondsCount > 0) {
-                        mBinding.tvTimer.visibility = VISIBLE
-                        mBinding.tvTimer.text =
-                            "00:${if (secondsCount < 10) " 0$secondsCount" else secondsCount}  "
-                    } else {
-                        mBinding.tvResend.isEnabled = true
-                        stopCountDown()
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
-        }
-        handler.postDelayed(runnable, 0)
-    }
-
-    private fun stopCountDown() {
-        mBinding.tvTimer.visibility = GONE
-        handler.removeCallbacks(runnable)
-    }
 
     override fun stopBlur() {
     }
@@ -156,7 +111,6 @@ class OtpVerificationFragment : ScopedFragment(), FirebaseAuthResult, KodeinAwar
     override fun onCodeSentResult(status: CodeSentStatus) {
         when (status) {
             is CodeSentStatus.OnSuccess -> {
-                mBinding.tvTimer.visibility = GONE
                 mBinding.tvResend.isEnabled = false
                 verificationCode = status.verificationId
                 resendToken = status.token
@@ -183,46 +137,5 @@ class OtpVerificationFragment : ScopedFragment(), FirebaseAuthResult, KodeinAwar
         }
     }
 
-
-    private fun setupObserver() {
-
-        mViewModel.apply {
-            data.observe(viewLifecycleOwner, Observer {
-                Prefs.init().userId = it.data?.loginData?.id.toString()
-                Prefs.init().isProfileCompleted = it.data?.loginData?.isProfileCompleted.toString()
-                Prefs.init().isLogIn = "true"
-                Prefs.init().accessToken = it.data?.loginData?.accessToken.toString()
-
-                if (Prefs.init().isProfileCompleted == "1") {
-                    showToast("Login Successfully, Welcome back to ${getString(R.string.app_name)}")
-                    startActivity(Intent(requireActivity(), MainActivity::class.java))
-                    ( requireActivity() as AuthHandlerActivity).finish()
-
-
-                } else {
-                    showToast("Login Successfully, Please fill the required details")
-                    findNavController().navigate(
-                        R.id.user_type_fragment
-                    )
-                }
-
-
-            })
-            showLoading.observe(viewLifecycleOwner, Observer {
-                if (it == true) {
-                    showProgress()
-                } else hideProgress()
-            })
-
-            showMessage.observe(viewLifecycleOwner, Observer {
-                hideProgress()
-                if (!it.isNullOrEmpty()) {
-                    showToast(it)
-                }
-
-            })
-        }
-
-    }
 
 }

@@ -25,20 +25,15 @@
         tools:layout="@layout/user_details_fragment" />
 
     <fragment
-        android:id="@+id/user_type_fragment"
-        android:name="com.provider.unobridge.ui.fragments.profile.UserTypeFragment"
-        android:label="user_type_fragment"
-        tools:layout="@layout/user_type_fragment" />
+        android:id="@+id/organisation_details_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.OrganisationDetailsFragment"
+        android:label="organisation_details_fragment"
+        tools:layout="@layout/organisation_details_fragment" />
     <fragment
-        android:id="@+id/aadhar_details_fragment"
-        android:name="com.provider.unobridge.ui.fragments.profile.AaadharDetailsFragment"
-        android:label="aadhar_details_fragment"
-        tools:layout="@layout/aadhar_details_fragment" />
-    <fragment
-        android:id="@+id/vehicle_details_fragment"
-        android:name="com.provider.unobridge.ui.fragments.profile.VehicleDetailsFragment"
-        android:label="vehicle_details_fragment"
-        tools:layout="@layout/vehicle_details_fragment" />
+        android:id="@+id/digital_sites_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.DigitalSitesFragment"
+        android:label="digital_sites_fragment"
+        tools:layout="@layout/digital_sites_fragment" />
 
 
 </navigation>

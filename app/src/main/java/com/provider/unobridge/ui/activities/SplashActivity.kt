@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
             statusBarColor = Color.TRANSPARENT
         }
         Handler().postDelayed({
-            if (Prefs.init().isProfileCompleted == "1" && Prefs.init().isLogIn == "true") {
+            if (Prefs.init().isProfileCompleted == "1") {
                 startActivity(Intent(this, MainActivity::class.java))
             } else {
                 startActivity(Intent(this, AuthHandlerActivity::class.java))

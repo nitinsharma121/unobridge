@@ -7,7 +7,7 @@
 
         <variable
             name="clickHandler"
-            type="com.provider.unobridge.ui.fragments.profile.dialogs.AddProfileImageFragment.ClickHandler" />
+            type="com.provider.unobridge.ui.fragments.profile.dialogs.AddPromotionFragment.ClickHandler" />
 
     </data>
 
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_top_heading_dialog"
                 android:fontFamily="@font/averta_bold"
-                android:text="@string/add_image"
+                android:text="Add Promotion"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp18"
                 app:layout_constraintEnd_toEndOf="@id/gEnd"
@@ -68,7 +68,7 @@
             <androidx.core.widget.NestedScrollView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_60"
+                android:layout_marginTop="@dimen/margin_40"
                 app:layout_constraintEnd_toEndOf="@id/gEnd"
                 app:layout_constraintStart_toStartOf="@id/gStart"
                 app:layout_constraintTop_toBottomOf="@id/tvSort">
@@ -79,80 +79,82 @@
                     android:paddingBottom="@dimen/dp40">
 
 
-                    <carbon.widget.LinearLayout
-                        android:id="@+id/lGallery"
+                    <TextView
+                        android:id="@+id/tvDiscount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_30"
+                        android:fontFamily="@font/averta_bold"
+                        android:maxLength="500"
+                        android:maxLines="5"
+                        android:text="Discount Percentage"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <EditText
+                        android:id="@+id/etName"
+                        style="@style/editTextStyle"
                         android:layout_width="0dp"
-                        android:layout_height="41dp"
-                        android:layout_marginHorizontal="@dimen/dp2"
-                        android:layout_marginTop="@dimen/margin_40"
-                        android:background="@color/white"
-                        android:elevation="@dimen/margin_2"
-                        android:onClick="@{()->clickHandler.onClickGallery()}"
-                        android:orientation="horizontal"
-                        app:carbon_cornerRadius="@dimen/margin_15"
+                        android:layout_height="wrap_content"
+                        android:hint="Discount Percentage"
+                        android:inputType="number"
+                        android:maxLength="100"
+                        android:paddingBottom="@dimen/padding_edit_text_bottom"
+                        android:singleLine="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toBottomOf="@id/tvDiscount" />
 
-                        <carbon.widget.ImageView
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="@dimen/margin_20"
-                            android:src="@drawable/gallery"
-                            app:carbon_tint="@color/black" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="@dimen/margin_20"
-                            android:fontFamily="@font/averta_semibold"
-                            android:text="@string/gallery"
-                            android:textAllCaps="true"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/sp_11" />
-
-                    </carbon.widget.LinearLayout>
+                    <TextView
+                        android:id="@+id/tvExpiryDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:fontFamily="@font/averta_bold"
+                        android:text="Discount Expiry Date"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/etName" />
 
 
-                    <carbon.widget.LinearLayout
-                        android:id="@+id/lCamera"
+                    <EditText
+                        android:id="@+id/etExpiry"
+                        style="@style/editTextStyle"
                         android:layout_width="0dp"
-                        android:layout_height="41dp"
-                        android:layout_marginHorizontal="@dimen/dp2"
-                        android:layout_marginTop="@dimen/margin_20"
-                        android:layout_marginBottom="@dimen/margin_10"
-                        android:background="@color/white"
-                        android:elevation="@dimen/margin_2"
-                        android:onClick="@{()->clickHandler.onClickCamera()}"
-                        android:orientation="horizontal"
-                        app:carbon_cornerRadius="@dimen/margin_15"
+                        android:layout_height="wrap_content"
+                        android:hint="Discount Expiry Date"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:paddingBottom="@dimen/padding_edit_text_bottom"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvExpiryDate" />
+
+                    <carbon.widget.TextView
+                        android:id="@+id/btnNext"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/button_size_login"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:background="@drawable/button_bg"
+                        android:fontFamily="@font/gothampro_medium"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:onClick="@{()->clickHandler.onClickAdd()}"
+                        android:text="Add"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/lGallery">
-
-                        <carbon.widget.ImageView
-                            android:layout_width="17dp"
-                            android:layout_height="17dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="@dimen/margin_20"
-                            android:src="@drawable/camera"
-                            app:carbon_tint="@color/black" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="@dimen/margin_18"
-                            android:fontFamily="@font/averta_semibold"
-                            android:text="@string/camera"
-                            android:textAllCaps="true"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/sp_11" />
-
-                    </carbon.widget.LinearLayout>
+                        app:layout_constraintTop_toBottomOf="@id/etExpiry" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

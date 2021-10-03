@@ -2,6 +2,7 @@ package com.provider.unobridge.ui.activities
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -14,6 +15,7 @@ import com.provider.unobridge.base.Prefs
 import com.provider.unobridge.base.ScopedActivity
 import com.provider.unobridge.databinding.ActivityMainBinding
 import com.provider.unobridge.providers.payment.PaymentEventHandler
+import com.provider.unobridge.room.CalculatorDatabase
 
 class MainActivity : ScopedActivity(), NavController.OnDestinationChangedListener,
     com.provider.unobridge.providers.payment.PaymentResultListener {
@@ -41,28 +43,24 @@ class MainActivity : ScopedActivity(), NavController.OnDestinationChangedListene
             supportFragmentManager.findFragmentById(R.id.main_dash_fragment) as NavHostFragment
         navController = navHostFragment.navController
         navController.addOnDestinationChangedListener(this)
+        ClickHandler().goToHome()
 
 
+        var profileData = CalculatorDatabase.getDatabase(this).getProfileDao()
+            .getProfileData(Prefs.init().userId)
+        Log.e("ProfileDataa", "${profileData}")
+        mBinding.atCompany.setText( profileData.companyName.toString())
     }
 
 
     inner class ClickHandler {
-
-        fun add() {
-            if (Prefs.init().isSubscribed == "1") {
-                navController.navigate(R.id.add_ride_fragment)
-            } else {
-                navController.navigate(R.id.subscription_fragment)
-
-            }
-        }
 
         fun goToHome() {
             navController.navigate(R.id.home_fragment)
         }
 
         fun goToNotifications() {
-            navController.navigate(R.id.notifications_fragment)
+//            navController.navigate(R.id.notifications_fragment)
         }
 
     }
@@ -71,6 +69,7 @@ class MainActivity : ScopedActivity(), NavController.OnDestinationChangedListene
         mBinding.apply {
             bDashboard.setImageResource(R.drawable.ic_home)
             bNotifications.setImageResource(R.drawable.ic_bell)
+            bSearch.setImageResource(R.drawable.ic_baseline_search_24)
 
         }
 
@@ -96,15 +95,13 @@ class MainActivity : ScopedActivity(), NavController.OnDestinationChangedListene
     ) {
         changeIcons(destination.id)
         when (destination.id) {
-            R.id.rides_fragment, R.id.add_ride_fragment, R.id.account_fragment, R.id.aadhar_details_fragment, R.id.vehicle_details_fragment -> {
+            R.id.rides_fragment, R.id.account_fragment, R.id.aadhar_details_fragment, R.id.vehicle_details_fragment -> {
                 mBinding.bottomNav.visibility = GONE
-                mBinding.add.visibility = GONE
-                mBinding.parentLayoutBotom.visibility = GONE
+
             }
             else -> {
                 mBinding.bottomNav.visibility = VISIBLE
-                mBinding.parentLayoutBotom.visibility = VISIBLE
-                mBinding.add.visibility = VISIBLE
+
             }
         }
 

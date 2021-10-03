@@ -401,7 +401,7 @@ class Utils private constructor() {
         val mDay = calendar[Calendar.DAY_OF_MONTH]
         datePickerDialog = DatePickerDialog(
             context!!,
-//            R.style.MyTimePickerDialogTheme,
+           R.style.Theme_AppCompat_Light_Dialog,
             OnDateSetListener { _: DatePicker?, year: Int, month: Int, dayOfMonth: Int ->
 
                 Log.e("year", year.toString())
@@ -419,7 +419,6 @@ class Utils private constructor() {
                 var monthh =
                     if (month + 1 < 2) "0${(month + 1).toString()}" else (month + 1).toString()
 
-                var date = DateFormat.getDateTimeInstance().format(date);
                 tvDate.setText("${year}-${monthh}-${day}")
 
 

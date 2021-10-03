@@ -3,12 +3,13 @@ package com.provider.unobridge.ui.activities
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import com.provider.unobridge.R
-import com.provider.unobridge.base.Prefs
 import com.provider.unobridge.base.ScopedActivity
 import com.provider.unobridge.base.ScopedFragment
 import com.provider.unobridge.databinding.AuthHandlerActivityBinding
@@ -36,14 +37,10 @@ class AuthHandlerActivity : ScopedActivity(), NavController.OnDestinationChanged
         navController = navHostFragment.navController
         navController.addOnDestinationChangedListener(this)
 
-        mBinding.flNext.setOnClickListener {
-            listener?.onClickNext()
-        }
 
 
-        if (Prefs.init().isLogIn == "true") {
-            navController.navigate(R.id.user_type_fragment)
-        }
+        mBinding.btnNext.setOnClickListener { listener?.onClickNext() }
+        mBinding.ivBack.setOnClickListener { listener?.onClickBack() }
     }
 
     fun hideBlurView() {
@@ -58,11 +55,24 @@ class AuthHandlerActivity : ScopedActivity(), NavController.OnDestinationChanged
     ) {
 
         when (destination.id) {
-            R.id.otp_fragment -> mBinding.flNext.visibility = View.GONE
-            R.id.enter_mobile_fragment -> mBinding.clBottomView.visibility = View.GONE
+            R.id.otp_fragment -> {
+                mBinding.stepIndicator.visibility = View.GONE
+                mBinding.clBottom.visibility = GONE
+            }
+            R.id.enter_mobile_fragment -> {
+                mBinding.stepIndicator.visibility = View.GONE
+                mBinding.clBottom.visibility = GONE
+            }
+            R.id.user_details_fragment -> {
+                mBinding.stepIndicator.visibility = View.VISIBLE
+                mBinding.clBottom.visibility = VISIBLE
+                mBinding.ivBack.visibility = GONE
+            }
             else -> {
-                mBinding.clBottomView.visibility = View.VISIBLE
-                mBinding.flNext.visibility = View.VISIBLE
+                mBinding.stepIndicator.visibility = View.VISIBLE
+                mBinding.clBottom.visibility = View.VISIBLE
+                mBinding.ivBack.visibility = VISIBLE
+
             }
 
         }
@@ -82,16 +92,15 @@ class AuthHandlerActivity : ScopedActivity(), NavController.OnDestinationChanged
 
     fun setProgress(destination: NavDestination) {
         when (destination.id) {
-            R.id.user_details_fragment -> mBinding.mfProgressBar.progress = 0
-            R.id.aadhar_details_fragment -> mBinding.mfProgressBar.progress = 35
-            R.id.vehicle_details_fragment -> mBinding.mfProgressBar.progress = 70
-            else -> mBinding.mfProgressBar.progress = 0
+            R.id.user_details_fragment -> mBinding.stepIndicator.currentStepPosition = 0
+            R.id.organisation_details_fragment -> mBinding.stepIndicator.currentStepPosition = 1
+            R.id.digital_sites_fragment -> mBinding.stepIndicator.currentStepPosition = 2
         }
     }
 
     override fun onBackPressed() {
         when (navController.currentDestination?.id) {
-            R.id.enter_mobile_fragment, R.id.user_type_fragment -> finish()
+            R.id.enter_mobile_fragment -> finish()
             else -> {
                 if (!navController.navigateUp()) {
                     super.onBackPressed()
@@ -103,6 +112,7 @@ class AuthHandlerActivity : ScopedActivity(), NavController.OnDestinationChanged
 
     interface onClickListeners {
         fun onClickNext()
+        fun onClickBack()
     }
 
 }

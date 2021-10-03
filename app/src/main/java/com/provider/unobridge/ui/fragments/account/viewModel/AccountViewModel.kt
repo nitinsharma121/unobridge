@@ -16,7 +16,6 @@ class AccountViewModel(
 
     var data = MutableLiveData<BaseResponse>()
     var statesList = MutableLiveData<BaseResponse>()
-    val statesAdapter = StatesAdapter(R.layout.state_item)
 
 
     fun getProfile() {

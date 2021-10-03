@@ -78,15 +78,8 @@ class EnterMobileFragment : ScopedFragment(), FirebaseAuthResult, KodeinAware {
     }
 
     fun sendOtp() {
-        if (mBinding.etPhone.text.toString().isEmpty()) {
-            showToast(getString(R.string.mobile_validation_empty))
-        } else if (mBinding.etPhone.text.toString().length != 10) {
-            showToast(getString(R.string.mobile_validation_digit))
-        } else {
-            showProgress()
-            authImpl.sendOtp(mBinding.etPhone.text.toString(), "+91")
-        }
-
+        findNavController().navigate(
+            R.id.otp_fragment)
     }
 
 
@@ -117,9 +110,7 @@ class EnterMobileFragment : ScopedFragment(), FirebaseAuthResult, KodeinAware {
         }
         parentText.setSpan(tnCSpan, 16, 34, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
         parentText.setSpan(ppSpan, 43, 57, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-        mBinding.tvText2.text = parentText
-        mBinding.tvText2.movementMethod = LinkMovementMethod.getInstance()
-        mBinding.tvText2.highlightColor = resources.getColor(android.R.color.transparent)
+
     }
 
     private fun openHtml(title: Int, fileUrl: String) {

@@ -33,349 +33,60 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.95" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <carbon.widget.TextView
+            android:id="@+id/tvTitle"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_40sdp"
-            app:contentInsetEnd="0dp"
-            app:contentInsetStart="0dp"
+            android:layout_height="wrap_content"
+            android:text="List Of Sites"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/sp24"
+            app:carbon_font="@font/averta_bold"
             app:layout_constraintEnd_toEndOf="@id/gEnd"
             app:layout_constraintStart_toStartOf="@id/gStart"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <carbon.widget.ImageView
+            android:id="@+id/vLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/carbon_grey_300"
+            app:layout_constraintEnd_toEndOf="@id/gEnd"
+            app:layout_constraintStart_toStartOf="@id/gStart"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-                <ImageView
-                    android:id="@+id/ivBack"
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
-                    android:onClick="@{()->clickHandler.onBackPress()}"
-                    android:src="@drawable/ic_back"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/black" />
+        <carbon.widget.TextView
+            android:id="@+id/tvNoData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No data found"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/sp18"
+            android:visibility="gone"
+            app:carbon_font="@font/averta_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/tvStateTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:fontFamily="@font/averta_bold"
-                    android:text="@string/add_ride"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_18sdp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/ivBack"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.appcompat.widget.Toolbar>
-
-
-        <androidx.core.widget.NestedScrollView
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/margin_30"
-            android:fillViewport="true"
+            android:id="@+id/rvData"
+            android:layout_marginVertical="@dimen/_10sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/gEnd"
             app:layout_constraintStart_toStartOf="@id/gStart"
-            app:layout_constraintTop_toBottomOf="@id/toolbar">
+            app:layout_constraintTop_toBottomOf="@id/vLine" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/glTopHorizontal">
-
-
-                <TextView
-                    android:id="@+id/tvTripType"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/text_view_start_padding"
-                    android:fontFamily="@font/averta_bold"
-                    android:text="@string/trip_type"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/sp_14"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <RadioGroup
-                    android:id="@+id/rgType"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_20"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvTripType">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/averta_regular"
-                        android:text="One Way"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_20sdp"
-                        android:fontFamily="@font/averta_regular"
-                        android:text="Round"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/averta_regular"
-                        android:text="Local"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_14sdp" />
-
-                </RadioGroup>
-
-                <TextView
-                    android:id="@+id/tvPickUpCity"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_30"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/averta_bold"
-                    android:maxLength="500"
-                    android:maxLines="5"
-                    android:text="@string/pickup_city"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/sp_13"
-                    app:layout_constraintEnd_toStartOf="@id/tvPickUpDate"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rgType" />
-
-
-                <EditText
-                    android:id="@+id/etPickupCity"
-                    style="@style/editTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/pickup_city"
-                    android:inputType="textCapSentences"
-                    android:maxLength="370"
-                    android:maxLines="5"
-                    android:paddingBottom="@dimen/padding_edit_text_bottom"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toEndOf="@id/tvPickUpCity"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvPickUpCity" />
-
-
-                <TextView
-                    android:id="@+id/tvPickUpDate"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/margin_30"
-                    android:fontFamily="@font/averta_bold"
-                    android:maxLength="500"
-                    android:maxLines="5"
-                    android:text="@string/pickup_date_time"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/sp_13"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/tvPickUpCity"
-                    app:layout_constraintTop_toBottomOf="@id/rgType" />
-
-
-                <EditText
-                    android:id="@+id/etPickupDate"
-                    style="@style/editTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/pickup_date_time"
-                    android:inputType="textCapSentences"
-                    android:maxLength="370"
-                    android:maxLines="5"
-                    android:paddingBottom="@dimen/padding_edit_text_bottom"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/tvPickUpDate"
-                    app:layout_constraintTop_toBottomOf="@id/tvPickUpDate" />
-
-
-                <TextView
-                    android:id="@+id/tvDestinationCity"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_20"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/averta_bold"
-                    android:maxLength="500"
-                    android:maxLines="5"
-                    android:text="@string/destination_city"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/sp_14"
-                    app:layout_constraintEnd_toStartOf="@id/tvDestinationDate"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etPickupCity" />
-
-
-                <EditText
-                    android:id="@+id/etDestination"
-                    style="@style/editTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/destination_city"
-                    android:inputType="textCapSentences"
-                    android:maxLength="370"
-                    android:maxLines="5"
-                    android:paddingBottom="@dimen/padding_edit_text_bottom"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toEndOf="@id/tvDestinationCity"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDestinationCity" />
-
-
-                <TextView
-                    android:id="@+id/tvDestinationDate"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/margin_20"
-                    android:fontFamily="@font/averta_bold"
-                    android:maxLength="500"
-                    android:maxLines="5"
-                    android:text="@string/destination_date_time"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/sp_13"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/tvDestinationCity"
-                    app:layout_constraintTop_toBottomOf="@id/etPickupCity" />
-
-
-                <EditText
-                    android:id="@+id/etDestinationDate"
-                    style="@style/editTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/pickup_date_time"
-                    android:inputType="textCapSentences"
-                    android:maxLength="370"
-                    android:maxLines="5"
-                    android:paddingBottom="@dimen/padding_edit_text_bottom"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/tvDestinationDate"
-                    app:layout_constraintTop_toBottomOf="@id/tvDestinationDate" />
-
-
-                <TextView
-                    android:id="@+id/tvMobileNo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_20"
-                    android:fontFamily="@font/averta_bold"
-                    android:maxLength="500"
-                    android:maxLines="5"
-                    android:text="@string/contact_no"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/sp_14"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etDestination" />
-
-
-                <EditText
-                    android:id="@+id/etMobile"
-                    style="@style/editTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/contact_no"
-                    android:inputType="textCapSentences"
-                    android:maxLength="370"
-                    android:maxLines="5"
-                    android:paddingBottom="@dimen/padding_edit_text_bottom"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvMobileNo" />
-
-
-                <TextView
-                    android:id="@+id/tvCompany"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_20"
-                    android:fontFamily="@font/averta_bold"
-                    android:maxLength="500"
-                    android:maxLines="5"
-                    android:text="@string/company_name"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/sp_14"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etMobile" />
-
-
-                <EditText
-                    android:id="@+id/etCompany"
-                    style="@style/editTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/company_name"
-                    android:inputType="textCapSentences"
-                    android:maxLength="370"
-                    android:maxLines="5"
-                    android:paddingBottom="@dimen/padding_edit_text_bottom"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCompany" />
-
-                <carbon.widget.ConstraintLayout
-                    android:id="@+id/btFb"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/button_size_login"
-                    android:layout_marginTop="@dimen/margin_30"
-                    android:background="@drawable/button_bg"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:carbon_cornerRadius="@dimen/dp15"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etCompany">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/averta_bold"
-                        android:text="@string/add_ride"
-                        android:textAllCaps="true"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/sp_16"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </carbon.widget.ConstraintLayout>
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.core.widget.NestedScrollView>
-
-
+        <carbon.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:onClick="@{()->clickHandler.onClickAdd()}"
+            android:src="@drawable/menu_add_button_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

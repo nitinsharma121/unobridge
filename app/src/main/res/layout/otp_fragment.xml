@@ -68,7 +68,7 @@
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:src="@drawable/userplaceholder"
+            android:src="@drawable/app_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
@@ -78,7 +78,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_40sdp"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toBottomOf="@id/ivLogo">
@@ -123,10 +122,10 @@
                 app:cursorWidth="2dp"
                 app:hideLineWhenFilled="true"
                 app:itemCount="6"
-                app:itemHeight="@dimen/_42sdp"
+                app:itemHeight="@dimen/_38sdp"
                 app:itemRadius="@dimen/_4sdp"
                 app:itemSpacing="10dp"
-                app:itemWidth="@dimen/_42sdp"
+                app:itemWidth="@dimen/_38sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle"
@@ -157,6 +156,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/clDone"
             android:layout_marginTop="@dimen/_50sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

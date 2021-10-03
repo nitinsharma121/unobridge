@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="frontImage"
+            type="String" />
+
+        <variable
+            name="backImage"
+            type="String" />
+
+        <variable
+            name="clickHandler"
+            type="com.provider.unobridge.ui.fragments.profile.DigitalSitesFragment.ClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gStartOuter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.08" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gEndOuter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.92" />
+
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_view_start_padding"
+            android:layout_marginTop="@dimen/dp10"
+            android:fontFamily="@font/averta_bold"
+            android:text="Set up the digital sites"
+            android:textAllCaps="true"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/sp17"
+            app:layout_constraintStart_toStartOf="@id/gStartOuter"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clProcess"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/gEndOuter"
+            app:layout_constraintStart_toStartOf="@id/gStartOuter"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <carbon.widget.TextView
+                android:id="@+id/tvProcessing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="Processing..."
+                android:textColor="@color/grey"
+                android:textSize="@dimen/sp_22"
+                app:carbon_font="@font/averta_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <carbon.widget.TextView
+                android:id="@+id/tvWebsite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="1. Setting up Website"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_22"
+                app:carbon_font="@font/averta_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvProcessing" />
+
+            <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                android:id="@+id/lpWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWebsite"
+                app:rpbBackgroundColor="#CCCCCC"
+                app:rpbBackgroundTextColor="#E0000F"
+                app:rpbCornerRadius="20dp"
+                app:rpbProgressColor="@color/carbon_purple_900"
+                app:rpbProgressTextColor="@color/colorAccent"
+                app:rpbTextPadding="10dp"
+                app:rpbTextSize="20sp" />
+
+
+            <carbon.widget.TextView
+                android:id="@+id/tvBusines"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="2. Setting up Business Tools"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_22"
+                app:carbon_font="@font/averta_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lpWebsite" />
+
+            <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                android:id="@+id/lpBusiness"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBusines"
+                app:rpbBackgroundColor="#CCCCCC"
+                app:rpbBackgroundTextColor="#E0000F"
+                app:rpbCornerRadius="20dp"
+                app:rpbProgressColor="@color/carbon_purple_900"
+                app:rpbProgressTextColor="@color/colorAccent"
+                app:rpbTextPadding="10dp"
+                app:rpbTextSize="20sp" />
+
+            <carbon.widget.TextView
+                android:id="@+id/tvOperation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="3. Setting up Operation Tools"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_22"
+                app:carbon_font="@font/averta_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lpBusiness" />
+
+            <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                android:id="@+id/lpOperation"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvOperation"
+                app:rpbBackgroundColor="#CCCCCC"
+                app:rpbBackgroundTextColor="#E0000F"
+                app:rpbCornerRadius="20dp"
+                app:rpbProgressColor="@color/carbon_purple_900"
+                app:rpbProgressTextColor="@color/colorAccent"
+                app:rpbTextPadding="10dp"
+                app:rpbTextSize="20sp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glTopHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nvParent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_30"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/glTopHorizontal">
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gStartInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.072" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.08" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.92" />
+
+                <TextView
+                    android:id="@+id/tvLegalName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text_view_start_padding"
+                    android:fontFamily="@font/averta_bold"
+                    android:text="Company Name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/sp_14"
+                    app:layout_constraintStart_toStartOf="@id/gStart"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/eBusinessName"
+                    style="@style/editTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Company Name"
+                    android:inputType="text"
+                    android:maxLength="14"
+                    android:paddingBottom="@dimen/padding_edit_text_bottom"
+                    android:singleLine="true"
+                    app:layout_constraintEnd_toEndOf="@id/gEnd"
+                    app:layout_constraintStart_toStartOf="@id/gStart"
+                    app:layout_constraintTop_toBottomOf="@id/tvLegalName" />
+
+
+                <TextView
+                    android:id="@+id/tvTradeName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:fontFamily="@font/averta_bold"
+                    android:maxLength="500"
+                    android:maxLines="5"
+                    android:text="Primary Brand Color"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/sp_14"
+                    app:layout_constraintStart_toStartOf="@id/gStart"
+                    app:layout_constraintTop_toBottomOf="@id/eBusinessName" />
+
+
+                <EditText
+                    android:id="@+id/eTradeName"
+                    style="@style/editTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                    android:hint="Primary Brand Color"
+                    android:inputType="text"
+                    android:maxLength="14"
+                    android:paddingBottom="@dimen/padding_edit_text_bottom"
+                    android:singleLine="true"
+                    app:layout_constraintEnd_toEndOf="@id/gEnd"
+                    app:layout_constraintStart_toStartOf="@id/gStart"
+                    app:layout_constraintTop_toBottomOf="@id/tvTradeName" />
+
+                <TextView
+                    android:id="@+id/tvRegisterDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:fontFamily="@font/averta_bold"
+                    android:maxLength="500"
+                    android:maxLines="5"
+                    android:text="Secondary Brand Color"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/sp_14"
+                    app:layout_constraintStart_toStartOf="@id/gStart"
+                    app:layout_constraintTop_toBottomOf="@id/eTradeName" />
+
+
+                <EditText
+                    android:id="@+id/etRegistrationDate"
+                    style="@style/editTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                    android:hint="Secondary Brand Color"
+                    android:inputType="text"
+                    android:maxLength="14"
+                    android:paddingBottom="@dimen/padding_edit_text_bottom"
+                    android:singleLine="true"
+                    app:layout_constraintEnd_toEndOf="@id/gEnd"
+                    app:layout_constraintStart_toStartOf="@id/gStart"
+                    app:layout_constraintTop_toBottomOf="@id/tvRegisterDate" />
+
+
+                <TextView
+                    android:id="@+id/tvProfilePic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text_view_start_padding"
+                    android:fontFamily="@font/averta_bold"
+                    android:text="Logo"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/sp_14"
+                    app:layout_constraintBottom_toTopOf="@id/clEmptyPic"
+                    app:layout_constraintStart_toStartOf="@id/gStart"
+                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationDate" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clEmptyPic"
+                    android:layout_width="@dimen/margin_125"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="@dimen/margin_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvProfilePic">
+
+                    <include
+                        android:id="@+id/ivEmpty"
+                        layout="@layout/user_image_empty_recycler_item" />
+
+                    <ImageView
+                        android:id="@+id/ivImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tvLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:fontFamily="@font/averta_bold"
+                    android:maxLength="500"
+                    android:maxLines="5"
+                    android:text="Language of the Website"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/sp_14"
+                    app:layout_constraintStart_toStartOf="@id/gStart"
+                    app:layout_constraintTop_toBottomOf="@id/clEmptyPic" />
+
+
+                <EditText
+                    android:id="@+id/etLanguage"
+                    style="@style/editTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                    android:hint="Language of the Website"
+                    android:inputType="text"
+                    android:maxLength="14"
+                    android:paddingBottom="@dimen/padding_edit_text_bottom"
+                    android:singleLine="true"
+                    app:layout_constraintEnd_toEndOf="@id/gEnd"
+                    app:layout_constraintStart_toStartOf="@id/gStart"
+                    app:layout_constraintTop_toBottomOf="@id/tvLanguage" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

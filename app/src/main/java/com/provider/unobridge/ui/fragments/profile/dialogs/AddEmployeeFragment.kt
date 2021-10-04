@@ -13,16 +13,17 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.provider.unobridge.R
 import com.provider.unobridge.base.BaseBottomSheetDialogFragment
 import com.provider.unobridge.base.Utils
-import com.provider.unobridge.databinding.AddOrderFragmentBinding
+import com.provider.unobridge.databinding.AddEmployeeFragmentBinding
 import com.provider.unobridge.room.CalculatorDatabase
+import com.provider.unobridge.room.entities.EmployeesData
 import com.provider.unobridge.room.entities.OrdersData
 import org.kodein.di.KodeinAware
 
 
-class AddOrderFragment : BaseBottomSheetDialogFragment(), KodeinAware, View.OnTouchListener {
+class AddEmployeeFragment : BaseBottomSheetDialogFragment(), KodeinAware, View.OnTouchListener {
 
     override val kodein by lazy { (context?.applicationContext as KodeinAware).kodein }
-    private lateinit var mBinding: AddOrderFragmentBinding
+    private lateinit var mBinding: AddEmployeeFragmentBinding
     var requestCode: Int = 0
 
     override val isFullScreen: Boolean
@@ -34,21 +35,13 @@ class AddOrderFragment : BaseBottomSheetDialogFragment(), KodeinAware, View.OnTo
         savedInstanceState: Bundle?
     ): View? {
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.BottomSheetStyle)
-        mBinding = AddOrderFragmentBinding.inflate(inflater, container, false).apply {
+        mBinding = AddEmployeeFragmentBinding.inflate(inflater, container, false).apply {
             clickHandler = ClickHandler()
         }
         mBinding.ivBack.setOnClickListener {
             dismiss()
         }
 
-        mBinding.etExpiry.setOnClickListener {
-            Utils.init.selectDate(
-                requireContext(),
-                "",
-                mBinding.etExpiry,
-                false
-            )
-        }
 
         getCustomersList()
         mBinding.etCustomer.setOnTouchListener(this)
@@ -95,14 +88,15 @@ class AddOrderFragment : BaseBottomSheetDialogFragment(), KodeinAware, View.OnTo
         var bundle = Bundle()
 
         fun onClickAdd() {
-            if (mBinding.etCustomer.text.isNotEmpty() && mBinding.etExpiry.text.isNotEmpty() && mBinding.etPrice.text.isNotEmpty()) {
-                var ordersData = OrdersData()
-                ordersData.customerName = mBinding.etCustomer.text.toString()
-                ordersData.orderPrice = mBinding.etPrice.text.toString()
-                ordersData.endDate = mBinding.etExpiry.text.toString()
-                ordersData.isActive = true
-                CalculatorDatabase.getDatabase(requireContext()).getOrdersDao().addOrder(ordersData)
-                setFragmentResult(getString(R.string.orders), Bundle())
+            if (mBinding.etName.text.isNotEmpty() && mBinding.etAadhar.text.isNotEmpty() && mBinding.etAddress.text.isNotEmpty() && mBinding.etCustomer.text.isNotEmpty() && mBinding.etContact.text.isNotEmpty()) {
+                var ordersData = EmployeesData()
+                ordersData.customer = mBinding.etCustomer.text.toString()
+                ordersData.name = mBinding.etName.text.toString()
+                ordersData.address = mBinding.etAddress.text.toString()
+                ordersData.contactNo = mBinding.etContact.text.toString()
+                ordersData.aadharNo = mBinding.etAadhar.text.toString()
+                CalculatorDatabase.getDatabase(requireContext()).getEmployesDao().addEmployee(ordersData)
+                setFragmentResult(getString(R.string.employees), Bundle())
                 dismiss()
 
 

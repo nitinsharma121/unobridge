@@ -7,7 +7,7 @@
 
         <variable
             name="clickHandler"
-            type="com.provider.unobridge.ui.fragments.profile.dialogs.AddOrderFragment.ClickHandler" />
+            type="com.provider.unobridge.ui.fragments.profile.dialogs.OrderDetailsFragment.ClickHandler" />
 
     </data>
 
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_top_heading_dialog"
                 android:fontFamily="@font/averta_bold"
-                android:text="Add Order"
+                android:text="Order Details"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp18"
                 app:layout_constraintEnd_toEndOf="@id/gEnd"
@@ -78,103 +78,54 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/dp40">
 
-
-                    <TextView
-                        android:id="@+id/tvDiscount"
-                        android:layout_width="wrap_content"
+                    <carbon.widget.TextView
+                        android:id="@+id/tvCustomerName"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_30"
-                        android:fontFamily="@font/averta_bold"
-                        android:maxLength="500"
-                        android:maxLines="5"
-                        android:text="Choose Customer"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="@dimen/sp_14"
+                        android:text="Abc"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp18"
+                        app:carbon_font="@font/averta_regular"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-
-                    <AutoCompleteTextView
-                        android:id="@+id/etCustomer"
-                        style="@style/editTextStyle"
+                    <carbon.widget.TextView
+                        android:id="@+id/tvPrice"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="Choose Customer"
-                        android:inputType="none"
-                        android:focusable="false"
-                        android:maxLength="100"
-                        android:paddingBottom="@dimen/padding_edit_text_bottom"
-                        android:singleLine="true"
+                        android:text="₹"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp20"
+                        app:carbon_font="@font/averta_bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvDiscount" />
+                        app:layout_constraintTop_toBottomOf="@id/tvCustomerName" />
 
-                    <TextView
-                        android:id="@+id/tvPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_10"
-                        android:fontFamily="@font/averta_bold"
-                        android:text="Price (₹)"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="@dimen/sp_14"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/etCustomer" />
-
-
-                    <EditText
-                        android:id="@+id/etPrice"
-                        style="@style/editTextStyle"
+                    <carbon.widget.TextView
+                        android:id="@+id/tvEndDate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="Price (₹)"
-                        android:inputType="number"
-                        android:paddingBottom="@dimen/padding_edit_text_bottom"
+                        android:text="5446543464654"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp18"
+                        app:carbon_font="@font/averta_regular"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvPrice" />
 
 
-                    <TextView
-                        android:id="@+id/tvExpiryDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_10"
-                        android:fontFamily="@font/averta_bold"
-                        android:text="End Date"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="@dimen/sp_14"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/etPrice" />
-
-
-                    <EditText
-                        android:id="@+id/etExpiry"
-                        style="@style/editTextStyle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:hint="End Date"
-                        android:focusable="false"
-                        android:inputType="none"
-                        android:paddingBottom="@dimen/padding_edit_text_bottom"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvExpiryDate" />
-
                     <carbon.widget.TextView
                         android:id="@+id/btnNext"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/button_size_login"
-                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_50sdp"
                         android:background="@drawable/button_bg"
                         android:fontFamily="@font/gothampro_medium"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:gravity="center"
                         android:onClick="@{()->clickHandler.onClickAdd()}"
-                        android:text="Add"
+                        android:text="Mark Finished"
                         android:textAllCaps="true"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_14sdp"
@@ -182,7 +133,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/etExpiry" />
+                        app:layout_constraintTop_toBottomOf="@id/tvEndDate" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

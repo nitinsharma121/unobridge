@@ -8,18 +8,18 @@ import androidx.fragment.app.setFragmentResult
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.provider.unobridge.R
 import com.provider.unobridge.base.BaseBottomSheetDialogFragment
-import com.provider.unobridge.base.Utils
-import com.provider.unobridge.databinding.AddPromotoinFragmentBinding
+import com.provider.unobridge.databinding.OrderDetailsFragmentBinding
 import com.provider.unobridge.room.CalculatorDatabase
-import com.provider.unobridge.room.entities.PromotoinsData
+import com.provider.unobridge.room.entities.OrdersData
 import org.kodein.di.KodeinAware
 
 
-class AddPromotionFragment : BaseBottomSheetDialogFragment(), KodeinAware {
+class OrderDetailsFragment : BaseBottomSheetDialogFragment(), KodeinAware {
 
     override val kodein by lazy { (context?.applicationContext as KodeinAware).kodein }
-    private lateinit var mBinding: AddPromotoinFragmentBinding
+    private lateinit var mBinding: OrderDetailsFragmentBinding
     var requestCode: Int = 0
+    var ordersData = OrdersData()
 
     override val isFullScreen: Boolean
         get() = false
@@ -30,22 +30,20 @@ class AddPromotionFragment : BaseBottomSheetDialogFragment(), KodeinAware {
         savedInstanceState: Bundle?
     ): View? {
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.BottomSheetStyle)
-        mBinding = AddPromotoinFragmentBinding.inflate(inflater, container, false).apply {
+        mBinding = OrderDetailsFragmentBinding.inflate(inflater, container, false).apply {
             clickHandler = ClickHandler()
         }
         mBinding.ivBack.setOnClickListener {
             dismiss()
         }
 
-
-        mBinding.etExpiry.setOnClickListener {
-            Utils.init.selectDate(
-                requireContext(),
-                "",
-                mBinding.etExpiry,
-                false
-            )
+        ordersData = arguments?.get(getString(R.string.orders)) as OrdersData
+        ordersData?.let {
+            mBinding.tvCustomerName.text = "Customer Name : ${ordersData.customerName}"
+            mBinding.tvEndDate.text = "End Date : ${ordersData.endDate}"
+            mBinding.tvPrice.text = "Price : ₹ ${ordersData.orderPrice}"
         }
+
         return mBinding.root
     }
 
@@ -54,17 +52,14 @@ class AddPromotionFragment : BaseBottomSheetDialogFragment(), KodeinAware {
         var bundle = Bundle()
 
         fun onClickAdd() {
-
-            if (mBinding.etPercentage.text.isNotEmpty() && mBinding.etExpiry.text.isNotEmpty()) {
-                var data = PromotoinsData()
-                data.expireDate = mBinding.etExpiry.text.toString()
-                data.discountValue = mBinding.etPercentage.text.toString()
-                CalculatorDatabase.getDatabase(requireContext()).getPromotoinsDao()
-                    .addPromotoin(data)
-
-                setFragmentResult(getString(R.string.promotoin),Bundle())
-                dismiss()
-            }
+            ordersData.isActive = false
+            ordersData.paymentLink = "https://tvpaymentt/ll"
+            ordersData.reviewFeedbackLink = "https://feedback/ll"
+            ordersData.invoiceLink = "https://invoice/ll"
+            CalculatorDatabase.getDatabase(requireContext()).getOrdersDao()
+                .addOrder(ordersData)
+            setFragmentResult(getString(R.string.orders), Bundle())
+            dismiss()
 
 
         }

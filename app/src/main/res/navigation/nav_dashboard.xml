@@ -71,4 +71,23 @@
         tools:layout="@layout/add_order_fragment" />
 
 
+    <dialog
+        android:id="@+id/add_employee_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.dialogs.AddEmployeeFragment"
+        android:label="add_employee_fragment"
+        tools:layout="@layout/add_employee_fragment" />
+
+    <dialog
+        android:id="@+id/add_job_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.dialogs.AddJobFragment"
+        android:label="add_job_fragment"
+        tools:layout="@layout/add_job_fragment" />
+
+    <dialog
+        android:id="@+id/order_details_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.dialogs.OrderDetailsFragment"
+        android:label="order_details_fragment"
+        tools:layout="@layout/order_details_fragment" />
+
+
 </navigation>

@@ -8,6 +8,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.provider.unobridge.R
@@ -15,10 +16,8 @@ import com.provider.unobridge.base.ScopedFragment
 import com.provider.unobridge.data.SitesData
 import com.provider.unobridge.databinding.AddRideFragmentBinding
 import com.provider.unobridge.room.CalculatorDatabase
-import com.provider.unobridge.ui.fragments.profile.dialogs.CustomersAdapter
-import com.provider.unobridge.ui.fragments.profile.dialogs.OrdersAdapter
-import com.provider.unobridge.ui.fragments.profile.dialogs.PromotoinsAdapter
-import com.provider.unobridge.ui.fragments.profile.dialogs.SitesAdapter
+import com.provider.unobridge.room.entities.OrdersData
+import com.provider.unobridge.ui.fragments.profile.dialogs.*
 
 
 class AddRideFragment : ScopedFragment() {
@@ -61,6 +60,12 @@ class AddRideFragment : ScopedFragment() {
         ) { key, bundle ->
             seOrdersData()
         }
+
+        setFragmentResultListener(
+            getString(R.string.employees)
+        ) { key, bundle ->
+            setEmployeesData()
+        }
     }
 
     fun setupUI() {
@@ -102,6 +107,7 @@ class AddRideFragment : ScopedFragment() {
         mBinding.rvData.adapter = promotoinsAdapter
         val list = CalculatorDatabase.getDatabase(requireContext()).getPromotoinsDao()
             .getPromotoins()
+
         if (list.isEmpty()) {
             mBinding.tvNoData.visibility = VISIBLE
             mBinding.rvData.visibility = GONE
@@ -127,10 +133,25 @@ class AddRideFragment : ScopedFragment() {
         }
     }
 
+    fun setEmployeesData() {
+        val customersAdapter = EmployeesAdapter(R.layout.item_employee)
+        mBinding.rvData.adapter = customersAdapter
+        val list = CalculatorDatabase.getDatabase(requireContext()).getEmployesDao()
+            .getEmployees()
+        if (list.isEmpty()) {
+            mBinding.tvNoData.visibility = VISIBLE
+        } else {
+            mBinding.tvNoData.visibility = GONE
+            customersAdapter.setNewItems(list)
+
+        }
+    }
+
 
     fun seOrdersData() {
         val customersAdapter = OrdersAdapter(R.layout.item_order)
         mBinding.rvData.adapter = customersAdapter
+        customersAdapter.listener = this.ClickHandler()
         val list = CalculatorDatabase.getDatabase(requireContext()).getOrdersDao()
             .getOrders()
         if (list.isEmpty()) {
@@ -171,6 +192,7 @@ class AddRideFragment : ScopedFragment() {
 
             }
             getString(R.string.employees) -> {
+                setEmployeesData()
             }
             getString(R.string.regulartory) -> {
             }
@@ -183,7 +205,7 @@ class AddRideFragment : ScopedFragment() {
         }
     }
 
-    inner class ClickHandler : SitesAdapter.onClick {
+    inner class ClickHandler : SitesAdapter.onClick, OrdersAdapter.onClick {
         fun onBackPress() {
             findNavController().navigateUp()
         }
@@ -204,6 +226,7 @@ class AddRideFragment : ScopedFragment() {
                     findNavController().navigate(R.id.add_order_fragment)
                 }
                 getString(R.string.employees) -> {
+                    findNavController().navigate(R.id.add_employee_fragment)
                 }
                 getString(R.string.regulartory) -> {
                 }
@@ -220,6 +243,17 @@ class AddRideFragment : ScopedFragment() {
             findNavController().navigate(R.id.website_view_fragment)
         }
 
+        override fun onClickOrder(item: OrdersData, position: Int) {
+            if (item.isActive == true) {
+                findNavController().navigate(R.id.order_details_fragment, bundleOf(
+                    getString(R.string.orders) to item
+                ))
+
+            }
+
+
+        }
+
     }
 
 
@@ -228,9 +262,14 @@ class AddRideFragment : ScopedFragment() {
         val view = LayoutInflater.from(requireContext()).inflate(R.layout.content_picker_view, null)
         dialog.setContentView(view)
         var tvPromotions = view.findViewById<TextView>(R.id.tvAds)
+        var tvJobs = view.findViewById<TextView>(R.id.tvJobs)
         tvPromotions.setOnClickListener {
             dialog.dismiss()
             findNavController().navigate(R.id.add_promotoin_fragment)
+        }
+        tvJobs.setOnClickListener {
+            dialog.dismiss()
+            findNavController().navigate(R.id.add_job_fragment)
         }
         dialog.show()
     }

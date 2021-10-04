@@ -38,5 +38,16 @@
         android:textSize="@dimen/sp20"
         app:carbon_font="@font/averta_regular" />
 
+    <carbon.widget.TextView
+        android:id="@+id/tvJobs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="Jobs"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp20"
+        app:carbon_font="@font/averta_regular" />
+
 
 </carbon.widget.LinearLayout>

@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <carbon.widget.TextView
-            android:id="@+id/tvPrice"
+            android:id="@+id/tvUserName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="₹"
@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toStartOf="@id/ivDone"
             app:layout_constraintStart_toStartOf="parent" />
         <carbon.widget.TextView
-            android:id="@+id/tvEndDate"
+            android:id="@+id/tvAddress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="5446543464654"
@@ -50,10 +50,10 @@
             app:carbon_font="@font/averta_regular"
             app:layout_constraintEnd_toStartOf="@id/ivDone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPrice" />
+            app:layout_constraintTop_toBottomOf="@id/tvUserName" />
 
         <carbon.widget.TextView
-            android:id="@+id/tvPaymentLink"
+            android:id="@+id/tvContact"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="5446543464654"
@@ -62,10 +62,10 @@
             app:carbon_font="@font/averta_regular"
             app:layout_constraintEnd_toStartOf="@id/ivDone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEndDate" />
+            app:layout_constraintTop_toBottomOf="@id/tvAddress" />
 
         <carbon.widget.TextView
-            android:id="@+id/tvInvoiceLink"
+            android:id="@+id/tvAadhar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="5446543464654"
@@ -74,41 +74,9 @@
             app:carbon_font="@font/averta_regular"
             app:layout_constraintEnd_toStartOf="@id/ivDone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPaymentLink" />
-
-        <carbon.widget.TextView
-            android:id="@+id/tvReviewLink"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="5446543464654"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp18"
-            app:carbon_font="@font/averta_regular"
-            app:layout_constraintEnd_toStartOf="@id/ivDone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInvoiceLink" />
+            app:layout_constraintTop_toBottomOf="@id/tvContact" />
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ivDone"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:src="@drawable/green_circle"
-            android:layout_marginEnd="@dimen/_5sdp"
-            app:layout_constraintEnd_toStartOf="@id/tvIsAcive"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <carbon.widget.TextView
-            android:id="@+id/tvIsAcive"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Active"
-            android:textColor="@color/grey"
-            android:textSize="@dimen/sp18"
-            app:carbon_font="@font/averta_regular"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </carbon.widget.ConstraintLayout>
 </layout>

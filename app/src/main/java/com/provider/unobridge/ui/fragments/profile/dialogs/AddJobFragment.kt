@@ -8,17 +8,16 @@ import androidx.fragment.app.setFragmentResult
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.provider.unobridge.R
 import com.provider.unobridge.base.BaseBottomSheetDialogFragment
-import com.provider.unobridge.base.Utils
-import com.provider.unobridge.databinding.AddPromotoinFragmentBinding
+import com.provider.unobridge.databinding.AddJobFragmentBinding
 import com.provider.unobridge.room.CalculatorDatabase
 import com.provider.unobridge.room.entities.PromotoinsData
 import org.kodein.di.KodeinAware
 
 
-class AddPromotionFragment : BaseBottomSheetDialogFragment(), KodeinAware {
+class AddJobFragment : BaseBottomSheetDialogFragment(), KodeinAware {
 
     override val kodein by lazy { (context?.applicationContext as KodeinAware).kodein }
-    private lateinit var mBinding: AddPromotoinFragmentBinding
+    private lateinit var mBinding: AddJobFragmentBinding
     var requestCode: Int = 0
 
     override val isFullScreen: Boolean
@@ -30,7 +29,7 @@ class AddPromotionFragment : BaseBottomSheetDialogFragment(), KodeinAware {
         savedInstanceState: Bundle?
     ): View? {
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.BottomSheetStyle)
-        mBinding = AddPromotoinFragmentBinding.inflate(inflater, container, false).apply {
+        mBinding = AddJobFragmentBinding.inflate(inflater, container, false).apply {
             clickHandler = ClickHandler()
         }
         mBinding.ivBack.setOnClickListener {
@@ -38,14 +37,6 @@ class AddPromotionFragment : BaseBottomSheetDialogFragment(), KodeinAware {
         }
 
 
-        mBinding.etExpiry.setOnClickListener {
-            Utils.init.selectDate(
-                requireContext(),
-                "",
-                mBinding.etExpiry,
-                false
-            )
-        }
         return mBinding.root
     }
 
@@ -55,14 +46,15 @@ class AddPromotionFragment : BaseBottomSheetDialogFragment(), KodeinAware {
 
         fun onClickAdd() {
 
-            if (mBinding.etPercentage.text.isNotEmpty() && mBinding.etExpiry.text.isNotEmpty()) {
+            if (mBinding.etJobTitle.text.isNotEmpty() && mBinding.etJobDescription.text.isNotEmpty()) {
                 var data = PromotoinsData()
-                data.expireDate = mBinding.etExpiry.text.toString()
-                data.discountValue = mBinding.etPercentage.text.toString()
+                data.description = mBinding.etJobDescription.text.toString()
+                data.title = mBinding.etJobTitle.text.toString()
+                data.type = "Job"
                 CalculatorDatabase.getDatabase(requireContext()).getPromotoinsDao()
                     .addPromotoin(data)
 
-                setFragmentResult(getString(R.string.promotoin),Bundle())
+                setFragmentResult(getString(R.string.promotoin), Bundle())
                 dismiss()
             }
 

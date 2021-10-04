@@ -15,13 +15,20 @@ import kotlinx.android.parcel.Parcelize
 class PromotoinsData(
 
     @SerializedName("Id")
-    @PrimaryKey(autoGenerate = true) val Id: Int?=null,
+    @PrimaryKey(autoGenerate = true) val Id: Int? = null,
 
     @SerializedName("discountValue")
-    @ColumnInfo(name = "discountValue") var discountValue: String?=null,
+    @ColumnInfo(name = "discountValue") var discountValue: String? = null,
+    @SerializedName("type")
+    @ColumnInfo(name = "type") var type: String? = null,
 
     @SerializedName("expireDate")
-    @ColumnInfo(name = "expireDate") var expireDate: String?=null,
+    @ColumnInfo(name = "expireDate") var expireDate: String? = null,
+    @SerializedName("title")
+    @ColumnInfo(name = "title") var title: String?=null,
+
+    @SerializedName("description")
+    @ColumnInfo(name = "description") var description: String?=null,
 
 
     ) : Parcelable

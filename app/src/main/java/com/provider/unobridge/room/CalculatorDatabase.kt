@@ -4,20 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.provider.unobridge.room.daos.CustomerDataDao
-import com.provider.unobridge.room.daos.OrdersDataDao
-import com.provider.unobridge.room.daos.ProfileDataDao
-import com.provider.unobridge.room.daos.PromotoinsDataDao
-import com.provider.unobridge.room.entities.CustomersData
-import com.provider.unobridge.room.entities.OrdersData
-import com.provider.unobridge.room.entities.ProfileData
-import com.provider.unobridge.room.entities.PromotoinsData
+import com.provider.unobridge.room.daos.*
+import com.provider.unobridge.room.entities.*
 
 /**
  * Created by Nitin SHarma on 8/1/2020.
  */
 @Database(
-    entities = [CustomersData::class, OrdersData::class, ProfileData::class, PromotoinsData::class],
+    entities = [CustomersData::class,EmployeesData::class, OrdersData::class, ProfileData::class, PromotoinsData::class],
     version = 1,
     exportSchema = false
 )
@@ -27,6 +21,7 @@ public abstract class CalculatorDatabase : RoomDatabase() {
     abstract fun getOrdersDao(): OrdersDataDao
     abstract fun getProfileDao(): ProfileDataDao
     abstract fun getPromotoinsDao(): PromotoinsDataDao
+    abstract fun getEmployesDao(): EmployeesDataDao
 
 
     companion object {

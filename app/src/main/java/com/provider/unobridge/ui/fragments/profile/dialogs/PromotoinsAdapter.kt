@@ -10,8 +10,14 @@ class PromotoinsAdapter(override val layoutId: Int) :
 
     override fun bind(holder: ViewHolder, item: PromotoinsData, position: Int) {
 
-        holder.binding.tvContact.text = "Ends on ${item.expireDate}"
-        holder.binding.tvName.text = "Promotion Discount ${item.discountValue}%"
+        if (item.type == "Job") {
+            holder.binding.tvContact.text = item.description
+            holder.binding.tvName.text = item.title
+        } else {
+            holder.binding.tvContact.text = "Ends on ${item.expireDate}"
+            holder.binding.tvName.text = "Promotion Discount ${item.discountValue}%"
+        }
+
 
     }
 

@@ -2,21 +2,15 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="true">
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/_150sdp" />
-            <gradient
-                android:angle="180"
-                android:endColor="@color/purple_500"
-                android:startColor="@color/purple_700" />
+            <corners android:radius="@dimen/_10sdp" />
+            <solid android:color="@color/action_button_color"/>
         </shape>
     </item>
 
-    <item  android:state_enabled="false">
+    <item android:state_enabled="false">
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/_150sdp" />
-            <gradient
-                android:angle="180"
-                android:endColor="@color/grey"
-                android:startColor="@color/carbon_grey_500" />
+            <corners android:radius="@dimen/_10sdp" />
+            <gradient android:angle="180" android:endColor="@color/grey" android:startColor="@color/carbon_grey_500" />
         </shape>
     </item>
 

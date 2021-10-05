@@ -7,6 +7,7 @@ import android.app.TimePickerDialog
 import android.content.Context
 import android.graphics.Color
 import android.net.ConnectivityManager
+import android.os.Looper
 import android.text.InputFilter
 import android.text.Spanned
 import android.text.TextUtils
@@ -33,6 +34,7 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
+import java.util.logging.Handler
 
 
 class Utils private constructor() {
@@ -45,6 +47,21 @@ class Utils private constructor() {
 
     companion object {
         val init: Utils by lazy { HOLDER.INSTANCE }
+
+        fun View.disableMultiTap() {
+            try {
+                isEnabled = false
+                runWithDelay(500) {
+                    isEnabled = true
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+
+        fun runWithDelay(delay: Long, work: () -> Unit) {
+            android.os.Handler(Looper.getMainLooper()).postDelayed(Runnable { work() }, delay)
+        }
 
         @JvmStatic
         @BindingAdapter("bind:imageUrl")

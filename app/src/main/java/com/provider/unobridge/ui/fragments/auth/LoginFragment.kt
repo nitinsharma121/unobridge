@@ -9,6 +9,7 @@ import com.provider.unobridge.R
 import com.provider.unobridge.base.ScopedFragment
 import com.provider.unobridge.databinding.FragmentLoginBinding
 
+
 /**
  * Created by Nitin SHarma on 9/4/2021.
  */

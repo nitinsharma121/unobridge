@@ -3,6 +3,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/button_bg.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/drawer_menu_background.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/fab_background.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/ic_customer.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/ic_customer_support.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/ic_customer_support_white.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/ic_dashboard.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/ic_finance.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/ic_logo.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/ic_manage_operation.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/ic_my_account.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/ic_shop.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/ic_summary.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/input_field_bg.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/drawable/menu_add_button_bg.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/activity_dashboard.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/activity_splash.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/enter_mobile_fragment.xml" value="0.2" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/fragment_dashboard.xml" value="0.176" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/fragment_login.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/home_fragment.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/layout_dashboard_steps.xml" value="0.176" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/layout_drawer_menu_header.xml" value="0.264" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/layout_drawer_menu_item.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/layout_input_fields.xml" value="0.264" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/layout_logo.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/layout_navigation_menu.xml" value="0.176" />
+        <entry key="..\:/Users/Ashutosh Sagar/Desktop/Android_Workspace/UnoBridge/unobridge/app/src/main/res/layout/otp_fragment.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/Nitin/Desktop/Seacabs/app/src/main/res/drawable-v24/ic_back.xml" value="0.190625" />
         <entry key="..\:/Users/Nitin/Desktop/Seacabs/app/src/main/res/drawable-v24/resend_otp_bg.xml" value="0.1578125" />
         <entry key="..\:/Users/Nitin/Desktop/Seacabs/app/src/main/res/drawable-v24/user_type_bg.xml" value="0.2046875" />

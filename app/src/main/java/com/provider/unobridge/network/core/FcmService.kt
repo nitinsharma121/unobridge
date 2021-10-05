@@ -14,7 +14,7 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.provider.unobridge.R
 import com.provider.unobridge.base.Prefs
-import com.provider.unobridge.ui.activities.MainActivity
+import com.provider.unobridge.ui.activities.mainActivity.MainActivity
 
 
 class FcmService : FirebaseMessagingService() {

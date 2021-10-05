@@ -5,7 +5,7 @@ import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
 import com.provider.unobridge.R
-import com.provider.unobridge.ui.activities.MainActivity
+import com.provider.unobridge.ui.activities.mainActivity.MainActivity
 import com.razorpay.Checkout
 import com.razorpay.PaymentResultListener
 import org.json.JSONObject

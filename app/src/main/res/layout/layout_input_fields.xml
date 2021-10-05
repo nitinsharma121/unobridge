@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="inputValue"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:id="@+id/tvInputTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_regular"
+            android:paddingHorizontal="@dimen/_18sdp"
+            android:singleLine="true"
+            android:text="@{title}"
+            android:textColor="@color/input_field_title"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etInputValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_field_bg"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingTop="@dimen/_11sdp"
+            android:paddingBottom="@dimen/_9sdp"
+            android:singleLine="true"
+            android:text="@={inputValue}"
+            android:textColor="@color/input_field_value"
+            android:textSize="@dimen/_15sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvInputTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

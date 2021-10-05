@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.provider.unobridge.R
 import com.provider.unobridge.base.Prefs
+import com.provider.unobridge.ui.activities.mainActivity.MainActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

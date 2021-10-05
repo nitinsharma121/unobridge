@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="@dimen/_180sdp"
+        android:layout_height="@dimen/_180sdp"
+        android:adjustViewBounds="true"
+        android:paddingEnd="@dimen/_5sdp"
+        android:src="@drawable/ic_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLogoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:fontFamily="@font/verdana_bold"
+        android:text="@string/app_name"
+        android:textColor="@color/logo_title"
+        android:textSize="@dimen/_24sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivLogo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/logo_sub_title"
+        android:text="@string/app_name_subtitle"
+        app:layout_constraintEnd_toEndOf="@id/tvLogoTitle"
+        app:layout_constraintStart_toStartOf="@id/tvLogoTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvLogoTitle" />
+</androidx.constraintlayout.widget.ConstraintLayout>

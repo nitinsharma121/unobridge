@@ -9,9 +9,11 @@ import com.provider.unobridge.providers.firebasePhoneAuth.FirebaseAuthPhone
 import com.provider.unobridge.providers.firebasePhoneAuth.FirebaseAuthPhoneImpl
 import com.provider.unobridge.providers.payment.PaymentProvider
 import com.provider.unobridge.providers.payment.PaymentProviderImpl
+import com.provider.unobridge.providers.resources.ResourcesProvider
+import com.provider.unobridge.providers.resources.ResourcesProviderImpl
 import com.provider.unobridge.repo.RemoteRepository
 import com.provider.unobridge.repo.RemoteRepositoryImpl
-import com.provider.unobridge.ui.activities.MainActivity
+import com.provider.unobridge.ui.activities.mainActivity.MainActivity
 import com.provider.unobridge.ui.fragments.account.viewModel.AccountViewModelFactory
 import com.provider.unobridge.ui.fragments.auth.viewModel.LoginViewModelFactory
 import org.kodein.di.Kodein
@@ -44,6 +46,9 @@ class MainApplication : Application(), KodeinAware {
 
         bind() from singleton { APIService() }
 
+        bind<ResourcesProvider>() with provider {
+            ResourcesProviderImpl(instance())
+        }
         bind<PaymentProvider>() with provider {
             PaymentProviderImpl(instance(), getCurrentActivity()!! as MainActivity)
         }
@@ -55,9 +60,6 @@ class MainApplication : Application(), KodeinAware {
         bind<RemoteRepository>() with singleton {
             RemoteRepositoryImpl(instance())
         }
-
-
-
 
         bind<RemoteDataSource>() with singleton {
             RemoteDataSourceImp(instance())

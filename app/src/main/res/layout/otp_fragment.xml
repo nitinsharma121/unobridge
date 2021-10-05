@@ -52,35 +52,25 @@
             app:layout_constraintTop_toTopOf="parent"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:onClick="@{() -> clickHandler.backPress()}"
-                android:paddingEnd="@dimen/_10sdp"
-                android:src="@drawable/ic_back_custom_grey" />
 
         </androidx.appcompat.widget.Toolbar>
 
-
-        <ImageView
+        <include
             android:id="@+id/ivLogo"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:src="@drawable/app_logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            layout="@layout/layout_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/clMobile"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clMobile"
             android:layout_width="0dp"
+            android:layout_marginBottom="@dimen/_40sdp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_40sdp"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="@id/guideline1"
-            app:layout_constraintTop_toBottomOf="@id/ivLogo">
+            app:layout_constraintBottom_toTopOf="@id/btnLogin">
 
             <TextView
                 android:id="@+id/tvTitle"
@@ -94,7 +84,7 @@
                 android:text="Enter OTP sent \nto your mobile number"
                 android:textAlignment="center"
                 android:textColor="@color/grey"
-                android:textSize="@dimen/sp24"
+                android:textSize="@dimen/_15sdp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -123,7 +113,7 @@
                 app:hideLineWhenFilled="true"
                 app:itemCount="6"
                 app:itemHeight="@dimen/_38sdp"
-                app:itemRadius="@dimen/_4sdp"
+                app:itemRadius="@dimen/_5sdp"
                 app:itemSpacing="10dp"
                 app:itemWidth="@dimen/_38sdp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -145,7 +135,7 @@
                 android:gravity="center"
                 android:text="The Otp will expire in 01:33"
                 android:textColor="@color/resend_color"
-                android:textSize="@dimen/_16sdp"
+                android:textSize="@dimen/_13sdp"
                 android:theme="@style/pro"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pvOTP" />
@@ -154,11 +144,11 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clDone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:id="@+id/clDone"
             android:layout_marginTop="@dimen/_50sdp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivLogo">
@@ -186,34 +176,24 @@
                 app:layout_constraintTop_toBottomOf="@id/ivDone" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <LinearLayout
-            android:id="@+id/llContinue"
-            android:layout_width="0dp"
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_20sdp"
-            android:orientation="vertical"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:onClick="@{() -> clickHandler.onClickOTPSend()}"
+            android:paddingHorizontal="@dimen/_55sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="@string/sign_up"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_13sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guideline2"
-            app:layout_constraintStart_toEndOf="@id/guideline1">
-
-            <carbon.widget.TextView
-                android:id="@+id/btnLogin"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/button_size_login"
-                android:background="@drawable/button_bg"
-                android:fontFamily="@font/gothampro_medium"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:gravity="center"
-                android:onClick="@{() -> clickHandler.onClickOTPSend()}"
-                android:text="Signup"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_14sdp"
-                android:textStyle="bold" />
-
-            <include layout="@layout/button_under_glow" />
-        </LinearLayout>
-
+            app:layout_constraintStart_toEndOf="@id/guideline1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!--    </ScrollView>-->
 </layout>

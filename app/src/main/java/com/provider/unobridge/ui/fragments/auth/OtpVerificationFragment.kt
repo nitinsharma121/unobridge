@@ -21,7 +21,6 @@ import com.provider.unobridge.providers.firebasePhoneAuth.CodeSentStatus
 import com.provider.unobridge.providers.firebasePhoneAuth.FirebaseAuthPhone
 import com.provider.unobridge.providers.firebasePhoneAuth.FirebaseAuthResult
 import com.provider.unobridge.providers.firebasePhoneAuth.SignInResult
-import com.provider.unobridge.ui.activities.AuthHandlerActivity
 import com.provider.unobridge.ui.fragments.auth.viewModel.LoginViewModel
 import com.provider.unobridge.ui.fragments.auth.viewModel.LoginViewModelFactory
 import org.kodein.di.KodeinAware
@@ -61,7 +60,6 @@ class OtpVerificationFragment : ScopedFragment(), FirebaseAuthResult, KodeinAwar
 
     }
 
-
     private fun init() {
         authImpl.firebaseAuthResult = this
         verificationCode = arguments?.getString(getString(R.string.verification_id))
@@ -95,7 +93,7 @@ class OtpVerificationFragment : ScopedFragment(), FirebaseAuthResult, KodeinAwar
             } else {
                 mBinding.clMobile.visibility = GONE
                 mBinding.clDone.visibility = VISIBLE
-               mBinding.btnLogin.text="Setup"
+                mBinding.btnLogin.text = "Setup"
 
             }
 

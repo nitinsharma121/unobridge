@@ -1,5 +1,6 @@
 package com.provider.unobridge.ui.fragments.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
@@ -21,6 +22,7 @@ import com.provider.unobridge.providers.firebasePhoneAuth.CodeSentStatus
 import com.provider.unobridge.providers.firebasePhoneAuth.FirebaseAuthPhone
 import com.provider.unobridge.providers.firebasePhoneAuth.FirebaseAuthResult
 import com.provider.unobridge.providers.firebasePhoneAuth.SignInResult
+import com.provider.unobridge.ui.activities.dashboard.DashboardActivity
 import com.provider.unobridge.ui.fragments.auth.viewModel.LoginViewModel
 import com.provider.unobridge.ui.fragments.auth.viewModel.LoginViewModelFactory
 import org.kodein.di.KodeinAware
@@ -60,7 +62,7 @@ class EnterMobileFragment : ScopedFragment(), FirebaseAuthResult, KodeinAware {
     fun init() {
         authImpl.firebaseAuthResult = this
         setupTnCAndPP()
-        mBinding.tvCode.text = "+91"
+//        mBinding.tvCode.text = "+91"
     }
 
     inner class ClickHandler {
@@ -70,10 +72,11 @@ class EnterMobileFragment : ScopedFragment(), FirebaseAuthResult, KodeinAware {
         }
 
         fun onClickLogin() {
-            sendOtp()
+            startActivity(Intent(requireContext(), DashboardActivity::class.java))
         }
 
-        fun showCountries() {
+        fun onClickSignup(){
+            sendOtp()
         }
     }
 
@@ -137,7 +140,7 @@ class EnterMobileFragment : ScopedFragment(), FirebaseAuthResult, KodeinAware {
                         getString(R.string.verification_id) to status.verificationId,
                         getString(R.string.resend_token) to status.token,
                         getString(R.string.country_code) to "+91",
-                        getString(R.string.mobile_number) to mBinding.etPhone.text.toString()
+                        getString(R.string.mobile_number) to mBinding.iMobileInput.etInputValue.text.toString()
 
                     )
                 )

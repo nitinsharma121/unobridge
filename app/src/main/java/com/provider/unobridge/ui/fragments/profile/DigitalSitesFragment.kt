@@ -9,7 +9,6 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -20,7 +19,7 @@ import com.provider.unobridge.databinding.DigitalSitesFragmentBinding
 import com.provider.unobridge.room.CalculatorDatabase
 import com.provider.unobridge.room.entities.ProfileData
 import com.provider.unobridge.ui.activities.AuthHandlerActivity
-import com.provider.unobridge.ui.activities.MainActivity
+import com.provider.unobridge.ui.activities.mainActivity.MainActivity
 import com.provider.unobridge.ui.fragments.auth.viewModel.LoginViewModel
 import com.provider.unobridge.ui.fragments.auth.viewModel.LoginViewModelFactory
 import kotlinx.coroutines.launch
@@ -86,7 +85,8 @@ class DigitalSitesFragment : ScopedFragment(), KodeinAware {
 
         override fun onClickNext() {
             if (mBinding.eBusinessName.text.isNotEmpty()) {
-                if (!mBinding.clProcess.isVisible) {
+                if (true) {
+//                if (!mBinding.clProcess.isVisible) {
                     profileData.companyName = mBinding.eBusinessName.text.toString()
 
                     (requireActivity() as AuthHandlerActivity).mBinding.ivBack.visibility = GONE

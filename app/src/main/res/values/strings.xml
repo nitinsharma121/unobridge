@@ -1,13 +1,15 @@
 <resources>
     <string name="app_name">Unobridge</string>
+    <string name="app_name_subtitle">You Be Ahead</string>
     <string name="idol_cabs">Idol Cabs</string>
+    <string name="fake_number">9999999999</string>
     <string name="app_description">We will help you\n to get cabs</string>
     <string name="sign_in_with_mobile">Sign in with Mobile</string>
     <string name="verification">Verification</string>
     <string name="enter_otp_msg">"Enter the Otp sent to "</string>
     <string name="didn_t_recieve_otp_yet_resend">Didn\'t receive OTP yet? </string>
     <string name="phone_number">Enter Mobile Number</string>
-    <string name="mobile_number">Mobile Number</string>
+    <string name="mobile_number">Mobile No.</string>
     <string name="resend">RESEND</string>
     <string name="otp_was_successfully_resent">OTP was successfully resent</string>
     <string name="Continue">Continue</string>
@@ -116,6 +118,13 @@
     <string name="money">Money</string>
     <string name="promotoin">promotoin</string>
     <string name="jobs">jobs</string>
+    <string name="rights_reserved">©Unobridge2021 All rights are reserved.</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_a_member">Already a member?</string>
+    <string name="log_in">Log In</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="set_up_in_3_steps">Set up in 3 Steps</string>
 
 
 </resources>

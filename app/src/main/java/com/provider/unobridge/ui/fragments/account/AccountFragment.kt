@@ -17,7 +17,7 @@ import com.provider.unobridge.base.ScopedFragment
 import com.provider.unobridge.data.responeClasses.ResponseProfileData
 import com.provider.unobridge.databinding.AccountFragmentBinding
 import com.provider.unobridge.ui.activities.AuthHandlerActivity
-import com.provider.unobridge.ui.activities.MainActivity
+import com.provider.unobridge.ui.activities.mainActivity.MainActivity
 import com.provider.unobridge.ui.fragments.account.viewModel.AccountViewModel
 import com.provider.unobridge.ui.fragments.account.viewModel.AccountViewModelFactory
 import org.kodein.di.KodeinAware

@@ -30,7 +30,6 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.95" />
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvStates"
             android:layout_width="0dp"

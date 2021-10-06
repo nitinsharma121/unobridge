@@ -10,4 +10,10 @@
         android:name="com.provider.unobridge.ui.fragments.dashboard.DashboardFragment"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/orders_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.OrdersFragment"
+        android:label="orders_fragment"
+        tools:layout="@layout/orders_fragment" />
+
 </navigation>

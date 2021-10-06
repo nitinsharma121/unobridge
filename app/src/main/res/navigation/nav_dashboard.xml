@@ -42,7 +42,7 @@
         tools:layout="@layout/organisation_details_fragment" />
     <fragment
         android:id="@+id/vehicle_details_fragment"
-        android:name="com.provider.unobridge.ui.fragments.profile.DigitalSitesFragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.OrdersFragment"
         android:label="vehicle_details_fragment"
         tools:layout="@layout/digital_sites_fragment" />
 

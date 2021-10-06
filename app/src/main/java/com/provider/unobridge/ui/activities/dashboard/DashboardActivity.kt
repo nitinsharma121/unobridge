@@ -67,7 +67,7 @@ class DashboardActivity : AppCompatActivity(), ClickListener, KodeinAware {
             DrawerMenuItem(
                 resources.getDrawable(R.drawable.ic_order_management),
                 "Order Management",
-                R.id.home_fragment
+                R.id.orders_fragment
             ),
             DrawerMenuItem(
                 resources.getDrawable(R.drawable.ic_finance),

@@ -16,7 +16,7 @@
 
         <variable
             name="clickHandler"
-            type="com.provider.unobridge.ui.fragments.profile.DigitalSitesFragment.ClickHandler" />
+            type="com.provider.unobridge.ui.fragments.profile.OrdersFragment.ClickHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

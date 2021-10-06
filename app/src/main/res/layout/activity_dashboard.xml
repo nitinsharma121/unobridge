@@ -86,6 +86,7 @@
                         app:layout_constraintTop_toTopOf="@id/ivMenu">
 
                         <ImageView
+                            android:onClick="@{(view)->clickHandler.openWebsite(view)}"
                             android:layout_width="@dimen/_23sdp"
                             android:layout_height="@dimen/_23sdp"
                             android:adjustViewBounds="true"
@@ -120,6 +121,7 @@
                 app:navGraph="@navigation/dashboard_navigation" />
 
             <carbon.widget.FloatingActionButton
+                android:id="@+id/fabSupport"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginBottom="@dimen/_20sdp"

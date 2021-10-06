@@ -65,8 +65,9 @@
                     android:id="@+id/iMobileInput"
                     layout="@layout/layout_input_fields"
                     android:background="@android:color/transparent"
+                    app:inputValue="@{`7553663666`}"
                     app:lines="@{1}"
-                    app:textSize="@{@dimen/_15sdp}"      app:inputValue="@{@string/fake_number}"
+                    app:textSize="@{@dimen/_15sdp}"
                     app:title="@{@string/mobile_number}" />
 
                 <androidx.appcompat.widget.AppCompatButton

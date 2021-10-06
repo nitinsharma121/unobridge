@@ -40,6 +40,9 @@
     <color name="stats_up_color">#C3E8B3</color>
     <color name="stats_up_text_color">#518937</color>
     <color name="bottom_sheet_close_button">#ABABAB</color>
+    <color name="share_details_step_1">#DAF3FF</color>
+    <color name="share_details_step_2">#F9E9BC</color>
+    <color name="share_details_step_3">#E5F8ED</color>
 
 
 </resources>

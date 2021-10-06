@@ -29,5 +29,33 @@
         android:name="com.provider.unobridge.ui.fragments.profile.OrdersFragment"
         android:label="orders_fragment"
         tools:layout="@layout/orders_fragment" />
+    <fragment
+        android:id="@+id/addOrderFragment"
+        android:name="com.provider.unobridge.ui.fragments.order.add.AddOrderFragment"
+        android:label="AddOrderFragment" />
+    <fragment
+        android:id="@+id/completeOrderFragment"
+        android:name="com.provider.unobridge.ui.fragments.order.complete.CompleteOrderFragment"
+        android:label="fragment_complete_order"
+        tools:layout="@layout/fragment_complete_order" />
+    <fragment
+        android:id="@+id/finishedOrderFragment"
+        android:name="com.provider.unobridge.ui.fragments.order.finished.FinishedOrderFragment"
+        android:label="fragment_finished_order"
+        tools:layout="@layout/fragment_finished_order" />
+    <fragment
+        android:id="@+id/customizeWebsiteFragment"
+        android:name="com.provider.unobridge.ui.fragments.customizeWebsite.CustomizeWebsiteFragment"
+        android:label="CustomizeWebsiteFragment" />
+    <fragment
+        android:id="@+id/companyDetailsFragment"
+        android:name="com.provider.unobridge.ui.fragments.companyDetails.CompanyDetailsFragment"
+        android:label="CompanyDetailsFragment" />
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.provider.unobridge.ui.fragments.summary.SummaryFragment"
+        android:label="fragment_summary"
+        tools:layout="@layout/fragment_summary" />
+
 
 </navigation>

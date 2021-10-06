@@ -2,12 +2,9 @@ package com.provider.unobridge.ui.fragments.profile
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -15,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.provider.unobridge.R
 import com.provider.unobridge.base.Prefs
 import com.provider.unobridge.base.ScopedFragment
-import com.provider.unobridge.databinding.DigitalSitesFragmentBinding
+import com.provider.unobridge.base.Utils.Companion.disableMultiTap
 import com.provider.unobridge.databinding.OrdersFragmentBinding
 import com.provider.unobridge.room.CalculatorDatabase
 import com.provider.unobridge.room.entities.OrdersData
@@ -37,7 +34,7 @@ class OrdersFragment : ScopedFragment(), KodeinAware {
     lateinit var mViewModel: LoginViewModel
     var isEditingMode = true
     var profileData = ProfileData()
-    var ordersAdapter= OrdersAdapter(R.layout.item_order)
+    var ordersAdapter = OrdersAdapter(R.layout.item_order)
 
 
     override fun onCreateView(
@@ -49,6 +46,7 @@ class OrdersFragment : ScopedFragment(), KodeinAware {
             mViewModel =
                 ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
             mBinding = OrdersFragmentBinding.inflate(inflater, container, false).apply {
+                clickHandler = ClickHandler()
             }
         }
 
@@ -58,9 +56,9 @@ class OrdersFragment : ScopedFragment(), KodeinAware {
     }
 
     private fun setUpUI() {
-        var list=ArrayList<OrdersData>()
-        mBinding.rvJobs.adapter=ordersAdapter
-        for(i in 0..5){
+        val list = ArrayList<OrdersData>()
+        mBinding.rvJobs.adapter = ordersAdapter
+        for (i in 0..5) {
             list.add(OrdersData())
         }
         ordersAdapter.setNewItems(list)
@@ -86,8 +84,10 @@ class OrdersFragment : ScopedFragment(), KodeinAware {
     }
 
     inner class ClickHandler {
-
-
+        fun addOrder(view: View) {
+            view.disableMultiTap()
+            findNavController().navigate(R.id.addOrderFragment)
+        }
 
     }
 

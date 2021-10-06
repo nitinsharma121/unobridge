@@ -80,15 +80,14 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/dp40">
 
-
                     <include
                         android:id="@+id/iDescription"
                         layout="@layout/layout_input_fields"
                         android:background="@android:color/transparent"
-                        app:inputValue="@{`We are looking for electrical technicians in Kodihalli.`}"
+                        app:inputValue="@{`Diwali Dhamaka! 25% Off on all services. Valid till 20th October, 2021.`}"
                         app:lines="@{2}"
                         app:textSize="@{@dimen/_13sdp}"
-                        app:title="@{@string/txt_description}" />
+                        app:title="@{@string/txt_offer_text}" />
 
                     <include
                         android:id="@+id/iStartDate"
@@ -133,7 +132,6 @@
                         android:fontFamily="@font/gothampro_medium"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:gravity="center"
-                        android:onClick="@{()->clickHandler.onClickAdd()}"
                         android:paddingHorizontal="@dimen/_20sdp"
                         android:text="@string/add_on_website"
                         android:textAllCaps="false"
@@ -144,7 +142,10 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/iStartDate" />
+
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.core.widget.NestedScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

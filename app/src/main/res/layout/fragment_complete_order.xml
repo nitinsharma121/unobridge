@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="clickHandler"
+            type="com.provider.unobridge.ui.fragments.order.complete.ClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_view_color"
+        tools:context=".ui.fragments.order.complete.CompleteOrderFragment">
+
+        <TextView
+            android:id="@+id/tvRightsReserved"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/segoe_ui"
+            android:gravity="center"
+            android:text="@string/rights_reserved"
+            android:textColor="@color/input_field_title"
+            android:textSize="@dimen/_9sdp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <ImageView
+                    android:id="@+id/ivBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:scaleType="centerCrop"
+                    android:scaleX="1.11"
+                    android:scaleY="1.1"
+                    android:src="@drawable/complete_order_mock_1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvPostSetup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:translationZ="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:visibility="visible"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintTop_toBottomOf="@id/ivBody">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_20sdp">
+
+                        <TextView
+                            android:id="@+id/tvShareDetails"
+                            android:layout_width="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:text="@string/share_details"
+                            android:textColor="@color/action_button_color"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/in_last_30_days"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textColor="@color/input_field_title"
+                            android:textSize="@dimen/_11sdp"
+                            app:layout_constraintTop_toTopOf="@id/tvShareDetails"
+                            app:layout_constraintBottom_toBottomOf="@id/tvShareDetails"
+
+                            />
+
+                        <include
+                            android:id="@+id/iPaymentLink"
+                            layout="@layout/layout_dashboard_post_setup_steps"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_30sdp"
+                            android:onClick="@{(view)->clickHandler.onPaymentLink(view)}"
+                            app:icon="@{@drawable/ic_rupee}"
+                            app:iconBackground="@{@color/share_details_step_1}"
+                            app:layout_constraintTop_toBottomOf="@+id/tvShareDetails"
+                            app:message="@{`UPI ID`}"
+                            app:title="@{`Payment Link`}"
+                            app:underlineVisibility="@{View.INVISIBLE}" />
+
+                        <include
+                            android:id="@+id/iReceiveFeedback"
+                            layout="@layout/layout_dashboard_post_setup_steps"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{(view)->clickHandler.onReceiveFeedback(view)}"
+                            app:icon="@{@drawable/ic_feedback}"
+                            app:iconBackground="@{@color/share_details_step_2}"
+                            app:layout_constraintTop_toBottomOf="@+id/iPaymentLink"
+                            app:message="@{`On Website`}"
+                            app:title="@{`Received Feedback`}"
+                            app:underlineVisibility="@{View.INVISIBLE}" />
+
+                        <include
+                            android:id="@+id/iInvoice"
+                            layout="@layout/layout_dashboard_post_setup_steps"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{(view)->clickHandler.onInvoice(view)}"
+                            app:icon="@{@drawable/ic_invoice}"
+                            app:iconBackground="@{@color/share_details_step_3}"
+                            app:layout_constraintTop_toBottomOf="@+id/iReceiveFeedback"
+                            app:message="@{`PDF`}"
+                            app:title="@{`Invoice`}"
+                            app:underlineVisibility="@{View.GONE}" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnSignUp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/preview_button_bg"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:onClick="@{(view)->clickHandler.onShareViaWhatsApp(view)}"
+                            android:paddingHorizontal="@dimen/_30sdp"
+                            android:paddingVertical="@dimen/_10sdp"
+                            android:text="@string/share_via_whatsapp"
+                            android:textAllCaps="false"
+                            android:textColor="@color/action_button_color"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/iInvoice" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

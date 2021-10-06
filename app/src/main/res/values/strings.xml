@@ -3,10 +3,21 @@
     <string name="app_name_subtitle">You Be Ahead</string>
     <string name="idol_cabs">Idol Cabs</string>
     <string name="fake_number">9999999999</string>
+    <string name="txt_service">Service</string>
     <string name="txt_description">Description</string>
+    <string name="txt_customer_details">Customer Details</string>
+    <string name="txt_service_details">Service Details</string>
+    <string name="raju_electrician_website">https://unob.co/rajuelectrician/</string>
+    <string name="txt_job_order_no">Job Order No. </string>
+    <string name="txt_customer_name">Customer Name</string>
+    <string name="txt_customer_mobile">Customer Mobile No.</string>
+    <string name="txt_customer_address">Customer Address</string>
+    <string name="txt_estimated_cost">Estimated Cost</string>
     <string name="txt_offer_text">Offer Text</string>
     <string name="txt_start_date">Start Date</string>
+    <string name="txt_service_date">Service Date</string>
     <string name="txt_end_date">End Date</string>
+    <string name="txt_service_time">Service Time</string>
     <string name="app_description">We will help you\n to get cabs</string>
     <string name="sign_in_with_mobile">Sign in with Mobile</string>
     <string name="verification">Verification</string>
@@ -137,6 +148,11 @@
     <string name="add_job_opening">Add Job Opening</string>
     <string name="add_on_website">Add on Website</string>
     <string name="add_offer">Add Offer</string>
+    <string name="add_another_service">Add Another Service</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="share_details">Share Details</string>
+    <string name="share_via_whatsapp">Share via Whatsapp</string>
+    <string name="key_updated_dashboard">updated_dashboard</string>
 
 
 </resources>

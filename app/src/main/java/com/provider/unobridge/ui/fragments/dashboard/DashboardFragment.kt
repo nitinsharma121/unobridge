@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.provider.unobridge.R
 import com.provider.unobridge.base.Utils.Companion.disableMultiTap
 import com.provider.unobridge.databinding.FragmentDashboardBinding
+import com.provider.unobridge.ui.activities.dashboard.DashboardActivity
 
 
 class DashboardFragment : Fragment(), ClickListener {
@@ -23,17 +24,28 @@ class DashboardFragment : Fragment(), ClickListener {
     ): View {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_dashboard, container, false)
         mBinding.clickHandler = this
+        readArguments()
         return mBinding.root
+    }
+
+    private fun readArguments(){
+        val updated = arguments?.getBoolean(getString(R.string.key_updated_dashboard))
+        updated?.let{
+            mBinding.isSetupComplete = it
+            (requireActivity() as DashboardActivity).changeHeaderForDashboard()
+        }
     }
 
     override fun onSetupComplete(view: View) {
         view.disableMultiTap()
         mBinding.isSetupComplete = true
+        (requireActivity() as DashboardActivity)
+            .changeHeaderForDashboard()
     }
 
     override fun previewWebsite(view: View) {
         view.disableMultiTap()
-        val url = "https://www.reddit.com/"
+        val url = getString(R.string.raju_electrician_website)
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(url)
         startActivity(i)
@@ -57,6 +69,4 @@ class DashboardFragment : Fragment(), ClickListener {
         view.disableMultiTap()
         findNavController().navigate(R.id.addJobFragment)
     }
-
-
 }

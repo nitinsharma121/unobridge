@@ -51,6 +51,8 @@
             android:background="@drawable/input_field_bg"
             android:ellipsize="end"
             android:lines="@{lines}"
+            android:maxLines="@{lines}"
+            android:singleLine="false"
             android:text="@{inputValue}"
             android:fontFamily="@font/poppins_regular"
             android:gravity="center_vertical"

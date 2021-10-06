@@ -75,7 +75,7 @@
                             android:fontFamily="@font/poppins_semi_bold"
                             android:text="@string/set_up_in_3_steps"
                             android:textColor="@color/action_button_color"
-                            android:textSize="@dimen/_14sdp"
+                            android:textSize="@dimen/_13sdp"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <include
@@ -220,7 +220,7 @@
                                 android:fontFamily="@font/poppins_semi_bold"
                                 android:text="@string/update_website"
                                 android:textColor="@color/action_button_color"
-                                android:textSize="@dimen/_14sdp"
+                                android:textSize="@dimen/_13sdp"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <include
@@ -308,18 +308,6 @@
                         app:title="@{`Customers`}" />
 
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_20sdp"
-                        android:layout_marginBottom="@dimen/_30sdp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        android:scaleX="1.12"
-                        android:scaleY="1.1"
-                        android:src="@drawable/dashboard_mock"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/iOrdersStats" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,7 @@
         <variable
             name="underlineVisibility"
             type="Integer" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,8 +34,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvIcon"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_2sdp"
             app:cardBackgroundColor="@{iconBackground}"
             app:cardCornerRadius="@dimen/_50sdp"
@@ -44,7 +45,8 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/_13sdp"
+                android:padding="@dimen/_10sdp"
+                android:adjustViewBounds="true"
                 android:src="@{icon}"
                 app:tint="@color/action_button_color" />
         </androidx.cardview.widget.CardView>
@@ -54,7 +56,7 @@
             android:layout_width="2dp"
             android:layout_height="@dimen/_35sdp"
             android:background="@color/hr_color"
-            android:visibility="@{underlineVisibility ==  View.VISIBLE ? View.VISIBLE : underlineVisibility == View.INVISIBLE ? View.INVISIBLE : View.GONE}"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@id/cvIcon"
             app:layout_constraintStart_toStartOf="@id/cvIcon"
             app:layout_constraintTop_toBottomOf="@id/cvIcon" />
@@ -72,7 +74,7 @@
             android:textColor="@color/input_field_value"
             android:textSize="@dimen/_14sdp"
             app:layout_constraintBottom_toTopOf="@id/tvMessage"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivArrow"
             app:layout_constraintStart_toEndOf="@id/cvIcon"
             app:layout_constraintTop_toTopOf="@id/cvIcon" />
 
@@ -89,9 +91,17 @@
             android:textColor="@color/input_field_title"
             android:textSize="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="@id/cvIcon"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivArrow"
             app:layout_constraintStart_toEndOf="@id/cvIcon"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
+        <ImageView
+            android:id="@+id/ivArrow"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@+id/cvIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cvIcon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

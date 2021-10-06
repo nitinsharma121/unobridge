@@ -11,6 +11,18 @@
         <variable
             name="inputValue"
             type="String" />
+
+        <variable
+            name="lines"
+            type="Integer" />
+
+        <variable
+            name="textSize"
+            type="Float" />
+
+        <variable
+            name="icon"
+            type="android.graphics.drawable.Drawable" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,15 +50,17 @@
             android:layout_height="wrap_content"
             android:background="@drawable/input_field_bg"
             android:ellipsize="end"
+            android:lines="@{lines}"
+            android:text="@{inputValue}"
             android:fontFamily="@font/poppins_regular"
             android:gravity="center_vertical"
             android:paddingHorizontal="@dimen/_15sdp"
             android:paddingTop="@dimen/_11sdp"
             android:paddingBottom="@dimen/_9sdp"
-            android:singleLine="true"
-            android:text="@={inputValue}"
             android:textColor="@color/input_field_value"
-            android:textSize="@dimen/_15sdp"
+            android:textSize="@{textSize}"
+            android:drawableEnd="@{icon}"
+            android:drawablePadding="5dp"
             app:layout_constraintTop_toBottomOf="@id/tvInputTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

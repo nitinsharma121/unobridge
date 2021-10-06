@@ -34,6 +34,12 @@
     <color name="step_1_color">#C5ECFF</color>
     <color name="step_2_color">#FFE18E</color>
     <color name="step_3_color">#A3E685</color>
+    <color name="ready_card_color">#BFD7DC</color>
+    <color name="stats_down_color">#FDC8B4</color>
+    <color name="stats_down_text_color">#E04212</color>
+    <color name="stats_up_color">#C3E8B3</color>
+    <color name="stats_up_text_color">#518937</color>
+    <color name="bottom_sheet_close_button">#ABABAB</color>
 
 
 </resources>

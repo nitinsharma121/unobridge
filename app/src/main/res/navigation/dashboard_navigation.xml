@@ -10,4 +10,18 @@
         android:name="com.provider.unobridge.ui.fragments.dashboard.DashboardFragment"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" />
+    <dialog
+        android:id="@+id/addJobFragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.dialogs.AddJobFragment"
+        android:label="AddJobFragment" />
+    <dialog
+        android:id="@+id/addOfferFragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.dialogs.AddOfferFragment"
+        android:label="AddOfferFragment" />
+    <fragment
+        android:id="@+id/financeFragment"
+        android:name="com.provider.unobridge.ui.fragments.finance.FinanceFragment"
+        android:label="fragment_finance"
+        tools:layout="@layout/fragment_finance" />
+
 </navigation>

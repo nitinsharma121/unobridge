@@ -65,7 +65,8 @@
                     android:id="@+id/iMobileInput"
                     layout="@layout/layout_input_fields"
                     android:background="@android:color/transparent"
-                    app:inputValue="@{@string/fake_number}"
+                    app:lines="@{1}"
+                    app:textSize="@{@dimen/_15sdp}"      app:inputValue="@{@string/fake_number}"
                     app:title="@{@string/mobile_number}" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -106,15 +107,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:fontFamily="@font/poppins_semi_bold"
+                    android:onClick="@{()->clickHandler.onClickLogin()}"
                     android:text="@string/log_in"
                     android:textColor="@color/action_button_color"
-                    android:onClick="@{()->clickHandler.onClickLogin()}"
                     android:textSize="@dimen/_12sdp"
                     app:layout_constraintBottom_toBottomOf="@id/tvAlreadyMember"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tvAlreadyMember"
-                    app:layout_constraintTop_toTopOf="@id/tvAlreadyMember"
-                    />
+                    app:layout_constraintTop_toTopOf="@id/tvAlreadyMember" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

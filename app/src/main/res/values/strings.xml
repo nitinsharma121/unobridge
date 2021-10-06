@@ -3,6 +3,10 @@
     <string name="app_name_subtitle">You Be Ahead</string>
     <string name="idol_cabs">Idol Cabs</string>
     <string name="fake_number">9999999999</string>
+    <string name="txt_description">Description</string>
+    <string name="txt_offer_text">Offer Text</string>
+    <string name="txt_start_date">Start Date</string>
+    <string name="txt_end_date">End Date</string>
     <string name="app_description">We will help you\n to get cabs</string>
     <string name="sign_in_with_mobile">Sign in with Mobile</string>
     <string name="verification">Verification</string>
@@ -125,6 +129,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="set_up_in_3_steps">Set up in 3 Steps</string>
+    <string name="set_up_complete">Set up Complete</string>
+    <string name="update_website">Update Website</string>
+    <string name="your_website_is_ready">Your website is ready!</string>
+    <string name="in_last_30_days">In last 30 days</string>
+    <string name="preview_website">Preview Website</string>
+    <string name="add_job_opening">Add Job Opening</string>
+    <string name="add_on_website">Add on Website</string>
+    <string name="add_offer">Add Offer</string>
 
 
 </resources>

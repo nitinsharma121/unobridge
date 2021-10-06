@@ -5,6 +5,15 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <variable
+            name="isSetupComplete"
+            type="Boolean" />
+
+        <variable
+            name="clickHandler"
+            type="com.provider.unobridge.ui.fragments.dashboard.ClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,71 +22,309 @@
         android:background="@android:color/transparent"
         tools:context=".ui.fragments.dashboard.DashboardFragment">
 
-        <androidx.cardview.widget.CardView
+        <TextView
+            android:id="@+id/tvRightsReserved"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:translationZ="@dimen/_10sdp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardUseCompatPadding="true"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/segoe_ui"
+            android:gravity="center"
+            android:text="@string/rights_reserved"
+            android:textColor="@color/input_field_title"
+            android:textSize="@dimen/_9sdp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_view_color"
+            android:clipToPadding="false"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="@dimen/_20sdp">
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_50sdp">
 
-                <TextView
-                    android:id="@+id/tvTitle"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvSetup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_semi_bold"
-                    android:text="@string/set_up_in_3_steps"
-                    android:textColor="@color/action_button_color"
-                    android:textSize="@dimen/_14sdp"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:translationZ="@dimen/_10sdp"
+                    android:visibility="@{isSetupComplete ? View.GONE : View.VISIBLE}"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <include
-                    android:id="@+id/iCreateWebsite"
-                    layout="@layout/layout_dashboard_steps"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_20sdp">
+
+                        <TextView
+                            android:id="@+id/tvTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:text="@string/set_up_in_3_steps"
+                            android:textColor="@color/action_button_color"
+                            android:textSize="@dimen/_14sdp"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <include
+                            android:id="@+id/iCreateWebsite"
+                            layout="@layout/layout_dashboard_steps"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_30sdp"
+                            app:icon="@{@drawable/ic_shop}"
+                            app:iconBackground="@{@color/step_1_color}"
+                            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                            app:message="@{`Select and Launch your Website`}"
+                            app:title="@{`Create Website`}"
+                            app:underlineVisibility="@{View.VISIBLE}" />
+
+                        <include
+                            android:id="@+id/iSelectBusiness"
+                            layout="@layout/layout_dashboard_steps"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:icon="@{@drawable/ic_dashboard}"
+                            app:iconBackground="@{@color/step_2_color}"
+                            app:layout_constraintTop_toBottomOf="@+id/iCreateWebsite"
+                            app:message="@{`Best tools to manage business`}"
+                            app:title="@{`Select Business Tools`}"
+                            app:underlineVisibility="@{View.VISIBLE}" />
+
+                        <include
+                            android:id="@+id/iManageOperation"
+                            layout="@layout/layout_dashboard_steps"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:icon="@{@drawable/ic_manage_operation}"
+                            app:iconBackground="@{@color/step_3_color}"
+                            app:layout_constraintTop_toBottomOf="@+id/iSelectBusiness"
+                            app:message="@{`Set as per your requirement`}"
+                            app:title="@{`Manage Operations`}"
+                            app:underlineVisibility="@{View.GONE}" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnSignUp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:background="@drawable/button_bg"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:onClick="@{(view)->clickHandler.onSetupComplete(view)}"
+                            android:paddingHorizontal="@dimen/_35sdp"
+                            android:paddingVertical="@dimen/_10sdp"
+                            android:text="@string/set_up_complete"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_13sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/iManageOperation" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    app:icon="@{@drawable/ic_shop}"
-                    app:iconBackground="@{@color/step_1_color}"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-                    app:message="@{`Select and Launch your Website`}"
-                    app:showUnderLine="@{true}"
-                    app:title="@{`Create Website`}" />
+                    android:visibility="@{isSetupComplete ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <include
-                    android:id="@+id/iSelectBusiness"
-                    layout="@layout/layout_dashboard_steps"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:icon="@{@drawable/ic_dashboard}"
-                    app:iconBackground="@{@color/step_2_color}"
-                    app:layout_constraintTop_toBottomOf="@+id/iCreateWebsite"
-                    app:message="@{`Best tools to manage business`}"
-                    app:showUnderLine="@{true}"
-                    app:title="@{`Select Business Tools`}" />
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvPreviewWebsite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_15sdp"
+                        android:translationZ="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/ready_card_color"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                <include
-                    android:id="@+id/iManageOperation"
-                    layout="@layout/layout_dashboard_steps"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:icon="@{@drawable/ic_manage_operation}"
-                    app:iconBackground="@{@color/step_3_color}"
-                    app:layout_constraintTop_toBottomOf="@+id/iSelectBusiness"
-                    app:message="@{`Set as per your requirement`}"
-                    app:showUnderLine="@{false}"
-                    app:title="@{`Manage Operations`}" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_20sdp">
 
+                            <TextView
+                                android:id="@+id/tvWebsiteReady"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:gravity="center"
+                                android:text="@string/your_website_is_ready"
+                                android:textColor="@color/action_button_color"
+                                android:textSize="@dimen/_14sdp"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnPreview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/_30sdp"
+                                android:layout_marginTop="16dp"
+                                android:background="@drawable/preview_button_bg"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:onClick="@{(view)->clickHandler.previewWebsite(view)}"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:paddingVertical="@dimen/_10sdp"
+                                android:text="@string/preview_website"
+                                android:textAllCaps="false"
+                                android:textColor="@color/action_button_color"
+                                android:textSize="@dimen/_13sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.502"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvWebsiteReady" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvPostSetup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:translationZ="@dimen/_10sdp"
+                        android:visibility="visible"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toBottomOf="@id/cvPreviewWebsite">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/_20sdp">
+
+                            <TextView
+                                android:id="@+id/tvUpdateWebsite"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:text="@string/update_website"
+                                android:textColor="@color/action_button_color"
+                                android:textSize="@dimen/_14sdp"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <include
+                                android:id="@+id/iAddOffer"
+                                layout="@layout/layout_dashboard_post_setup_steps"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_30sdp"
+                                android:onClick="@{(view)->clickHandler.addOffer(view)}"
+                                app:icon="@{@drawable/ic_offer}"
+                                app:iconBackground="@{@color/step_1_color}"
+                                app:layout_constraintTop_toBottomOf="@+id/tvUpdateWebsite"
+                                app:message="@{`Offers and discount to drive sales`}"
+                                app:title="@{`Add Offers`}"
+                                app:underlineVisibility="@{View.INVISIBLE}" />
+
+                            <include
+                                android:id="@+id/iUploadImage"
+                                layout="@layout/layout_dashboard_post_setup_steps"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{(view)->clickHandler.uploadImage(view)}"
+                                app:icon="@{@drawable/ic_upload_image}"
+                                app:iconBackground="@{@color/step_2_color}"
+                                app:layout_constraintTop_toBottomOf="@+id/iAddOffer"
+                                app:message="@{`To attract customers`}"
+                                app:title="@{`Upload Images`}"
+                                app:underlineVisibility="@{View.INVISIBLE}" />
+
+                            <include
+                                android:id="@+id/iAddVideo"
+                                layout="@layout/layout_dashboard_post_setup_steps"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{(view)->clickHandler.addVideo(view)}"
+                                app:icon="@{@drawable/ic_video}"
+                                app:iconBackground="@{@color/step_3_color}"
+                                app:layout_constraintTop_toBottomOf="@+id/iUploadImage"
+                                app:message="@{`Videos to promote your work`}"
+                                app:title="@{`Add Videos`}"
+                                app:underlineVisibility="@{View.INVISIBLE}" />
+
+                            <include
+                                android:id="@+id/iAddJobs"
+                                layout="@layout/layout_dashboard_post_setup_steps"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{(view)->clickHandler.addJobs(view)}"
+                                app:icon="@{@drawable/ic_calender_mark}"
+                                app:iconBackground="@{@color/stats_down_color}"
+                                app:layout_constraintTop_toBottomOf="@+id/iAddVideo"
+                                app:message="@{`To create new jobs`}"
+                                app:title="@{`Add Jobs`}"
+                                app:underlineVisibility="@{View.GONE}" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <include
+                        android:id="@+id/iOrdersStats"
+                        layout="@layout/layout_dashboard_stats"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_11sdp"
+                        app:layout_constraintEnd_toStartOf="@id/iCustomerStats"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cvPostSetup"
+                        app:percent="@{`10%`}"
+                        app:statsUp="@{false}"
+                        app:statsValue="@{`32`}"
+                        app:title="@{`Orders`}" />
+
+                    <include
+                        android:id="@+id/iCustomerStats"
+                        layout="@layout/layout_dashboard_stats"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_11sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/iOrdersStats"
+                        app:layout_constraintTop_toTopOf="@+id/iOrdersStats"
+                        app:percent="@{`12%`}"
+                        app:statsUp="@{true}"
+                        app:statsValue="@{`27`}"
+                        app:title="@{`Customers`}" />
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_30sdp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:scaleX="1.12"
+                        android:scaleY="1.1"
+                        android:src="@drawable/dashboard_mock"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iOrdersStats" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        </ScrollView>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

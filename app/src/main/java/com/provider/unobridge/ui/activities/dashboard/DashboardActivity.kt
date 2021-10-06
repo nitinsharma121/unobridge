@@ -1,5 +1,6 @@
 package com.provider.unobridge.ui.activities.dashboard
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.provider.unobridge.R
+import com.provider.unobridge.base.ScopedActivity
 import com.provider.unobridge.base.Utils.Companion.disableMultiTap
 import com.provider.unobridge.data.model.DrawerMenuItem
 import com.provider.unobridge.databinding.ActivityDashboardBinding
@@ -18,7 +20,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 
-class DashboardActivity : AppCompatActivity(), ClickListener, KodeinAware {
+class DashboardActivity : ScopedActivity(), ClickListener, KodeinAware {
 
     override val kodein: Kodein by closestKodein()
     private val resources: ResourcesProvider by instance()
@@ -27,6 +29,12 @@ class DashboardActivity : AppCompatActivity(), ClickListener, KodeinAware {
     private lateinit var navHostFragment: NavHostFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.apply {
+            decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            statusBarColor = Color.TRANSPARENT
+        }
+        setStatusBarColor(R.color.gray_view_color)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard)
         mBinding.clickHandler = this
         mBinding.showRedirection = false
@@ -72,7 +80,7 @@ class DashboardActivity : AppCompatActivity(), ClickListener, KodeinAware {
             DrawerMenuItem(
                 resources.getDrawable(R.drawable.ic_finance),
                 "Finance",
-                R.id.home_fragment
+                R.id.financeFragment
             ),
             DrawerMenuItem(
                 resources.getDrawable(R.drawable.ic_customer),

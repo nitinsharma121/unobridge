@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_top_heading_dialog"
                 android:fontFamily="@font/segoe_ui_bold"
-                android:text="@string/add_job_opening"
+                android:text="@string/add_offer"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_17sdp"
                 app:layout_constraintEnd_toStartOf="@id/ivBack"
@@ -85,10 +85,10 @@
                         android:id="@+id/iDescription"
                         layout="@layout/layout_input_fields"
                         android:background="@android:color/transparent"
-                        app:inputValue="@{`Diwali Dhamaka! 25% Off on all services. Valid till 20th October, 2021.`}"
+                        app:inputValue="@{`We are looking for electrical technicians in Kodihalli.`}"
                         app:lines="@{2}"
                         app:textSize="@{@dimen/_13sdp}"
-                        app:title="@{@string/txt_offer_text}" />
+                        app:title="@{@string/txt_description}" />
 
                     <include
                         android:id="@+id/iStartDate"
@@ -125,7 +125,7 @@
 
 
                     <carbon.widget.TextView
-                        android:id="@+id/btnNext"
+                        android:id="@+id/btnAdd"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/button_size_login"
                         android:layout_marginTop="@dimen/_30sdp"
@@ -144,15 +144,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/iStartDate" />
-
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
             </androidx.core.widget.NestedScrollView>
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </LinearLayout>
 </layout>

@@ -46,7 +46,7 @@ class AddJobFragment : BaseBottomSheetDialogFragment(), KodeinAware {
 
         fun onClickAdd() {
 
-            if (mBinding.etJobTitle.text.isNotEmpty() && mBinding.etJobDescription.text.isNotEmpty()) {
+            /*if (mBinding.etJobTitle.text.isNotEmpty() && mBinding.etJobDescription.text.isNotEmpty()) {
                 var data = PromotoinsData()
                 data.description = mBinding.etJobDescription.text.toString()
                 data.title = mBinding.etJobTitle.text.toString()
@@ -55,8 +55,8 @@ class AddJobFragment : BaseBottomSheetDialogFragment(), KodeinAware {
                     .addPromotoin(data)
 
                 setFragmentResult(getString(R.string.promotoin), Bundle())
-                dismiss()
-            }
+            }*/
+            dismiss()
 
 
         }

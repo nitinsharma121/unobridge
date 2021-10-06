@@ -22,8 +22,6 @@ class LoginFragment : ScopedFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-
         mBinding = FragmentLoginBinding.inflate(inflater, container, false).apply {
             clickHandler = ClickHandler()
         }

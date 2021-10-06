@@ -24,4 +24,10 @@
         android:label="fragment_finance"
         tools:layout="@layout/fragment_finance" />
 
+    <fragment
+        android:id="@+id/orders_fragment"
+        android:name="com.provider.unobridge.ui.fragments.profile.OrdersFragment"
+        android:label="orders_fragment"
+        tools:layout="@layout/orders_fragment" />
+
 </navigation>

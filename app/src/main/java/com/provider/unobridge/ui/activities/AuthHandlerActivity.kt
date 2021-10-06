@@ -94,7 +94,6 @@ class AuthHandlerActivity : ScopedActivity(), NavController.OnDestinationChanged
         when (destination.id) {
             R.id.user_details_fragment -> mBinding.stepIndicator.currentStepPosition = 0
             R.id.organisation_details_fragment -> mBinding.stepIndicator.currentStepPosition = 1
-            R.id.digital_sites_fragment -> mBinding.stepIndicator.currentStepPosition = 2
         }
     }
 

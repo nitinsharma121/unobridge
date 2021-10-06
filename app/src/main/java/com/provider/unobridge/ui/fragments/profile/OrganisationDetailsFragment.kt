@@ -61,11 +61,7 @@ class OrganisationDetailsFragment : ScopedFragment(), KodeinAware {
     inner class ClickHandler : AuthHandlerActivity.onClickListeners {
 
         override fun onClickNext() {
-            findNavController().navigate(
-                R.id.digital_sites_fragment, bundleOf(
-                    getString(R.string.profile_params) to profileData
-                )
-            )
+
         }
 
         override fun onClickBack() {
@@ -86,15 +82,7 @@ class OrganisationDetailsFragment : ScopedFragment(), KodeinAware {
         }
 
         fun fetchGSTIN() {
-            progressDialog?.show()
-            Handler().postDelayed({
-                progressDialog?.dismiss()
-                findNavController().navigate(
-                    R.id.digital_sites_fragment, bundleOf(
-                        getString(R.string.profile_params) to profileData
-                    )
-                )
-            }, 2000)
+
         }
 
 

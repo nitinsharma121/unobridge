@@ -1,5 +1,6 @@
 package com.provider.unobridge.ui.fragments.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
@@ -21,6 +22,7 @@ import com.provider.unobridge.providers.firebasePhoneAuth.CodeSentStatus
 import com.provider.unobridge.providers.firebasePhoneAuth.FirebaseAuthPhone
 import com.provider.unobridge.providers.firebasePhoneAuth.FirebaseAuthResult
 import com.provider.unobridge.providers.firebasePhoneAuth.SignInResult
+import com.provider.unobridge.ui.activities.dashboard.DashboardActivity
 import com.provider.unobridge.ui.fragments.auth.viewModel.LoginViewModel
 import com.provider.unobridge.ui.fragments.auth.viewModel.LoginViewModelFactory
 import org.kodein.di.KodeinAware
@@ -87,15 +89,16 @@ class OtpVerificationFragment : ScopedFragment(), FirebaseAuthResult, KodeinAwar
         }
 
         fun onClickOTPSend() {
+            startActivity(Intent(requireContext(), DashboardActivity::class.java))
 
-            if (mBinding.clDone.isVisible) {
-                findNavController().navigate(R.id.user_details_fragment)
-            } else {
-                mBinding.clMobile.visibility = GONE
-                mBinding.clDone.visibility = VISIBLE
-                mBinding.btnLogin.text = "Setup"
-
-            }
+//            if (mBinding.clDone.isVisible) {
+//                findNavController().navigate(R.id.user_details_fragment)
+//            } else {
+//               /* mBinding.clMobile.visibility = GONE
+//                mBinding.clDone.visibility = VISIBLE
+//                mBinding.btnLogin.text = "Setup"*/
+//
+//            }
 
         }
 

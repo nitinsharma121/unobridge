@@ -73,6 +73,7 @@ class EnterMobileFragment : ScopedFragment(), FirebaseAuthResult, KodeinAware {
 
         fun onClickLogin() {
             startActivity(Intent(requireContext(), DashboardActivity::class.java))
+
         }
 
         fun onClickSignup(){

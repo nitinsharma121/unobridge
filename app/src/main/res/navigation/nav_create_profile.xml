@@ -29,11 +29,7 @@
         android:name="com.provider.unobridge.ui.fragments.profile.OrganisationDetailsFragment"
         android:label="organisation_details_fragment"
         tools:layout="@layout/organisation_details_fragment" />
-    <fragment
-        android:id="@+id/digital_sites_fragment"
-        android:name="com.provider.unobridge.ui.fragments.profile.DigitalSitesFragment"
-        android:label="digital_sites_fragment"
-        tools:layout="@layout/digital_sites_fragment" />
+
 
 
 </navigation>

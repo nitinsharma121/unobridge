@@ -6,109 +6,82 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_2sdp"
         android:layout_marginBottom="@dimen/_5sdp"
         android:background="@color/white"
-        android:elevation="@dimen/_5sdp"
         android:orientation="vertical"
-        android:paddingHorizontal="@dimen/_10sdp"
-        android:paddingVertical="@dimen/_5sdp"
-        app:carbon_cornerRadius="@dimen/_10sdp">
+        >
 
 
-
-        <carbon.widget.TextView
+        <TextView
             android:id="@+id/tvCustomerName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Abc"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="Genysen Repair"
             android:textColor="@color/black"
             android:textSize="@dimen/sp18"
-            app:carbon_font="@font/averta_regular"
-            app:layout_constraintEnd_toStartOf="@id/ivDone"
+            app:layout_constraintEnd_toStartOf="@id/tvPrice"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <carbon.widget.TextView
+        <TextView
             android:id="@+id/tvPrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="₹"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="₹ 200"
             android:textColor="@color/black"
             android:textSize="@dimen/sp20"
             app:carbon_font="@font/averta_bold"
-            app:layout_constraintTop_toBottomOf="@id/tvCustomerName"
-            app:layout_constraintEnd_toStartOf="@id/ivDone"
-            app:layout_constraintStart_toStartOf="parent" />
-        <carbon.widget.TextView
-            android:id="@+id/tvEndDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="5446543464654"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp18"
-            app:carbon_font="@font/averta_regular"
-            app:layout_constraintEnd_toStartOf="@id/ivDone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPrice" />
-
-        <carbon.widget.TextView
-            android:id="@+id/tvPaymentLink"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="5446543464654"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp18"
-            app:carbon_font="@font/averta_regular"
-            app:layout_constraintEnd_toStartOf="@id/ivDone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEndDate" />
-
-        <carbon.widget.TextView
-            android:id="@+id/tvInvoiceLink"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="5446543464654"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp18"
-            app:carbon_font="@font/averta_regular"
-            app:layout_constraintEnd_toStartOf="@id/ivDone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPaymentLink" />
-
-        <carbon.widget.TextView
-            android:id="@+id/tvReviewLink"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="5446543464654"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp18"
-            app:carbon_font="@font/averta_regular"
-            app:layout_constraintEnd_toStartOf="@id/ivDone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInvoiceLink" />
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ivDone"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:src="@drawable/green_circle"
-            android:layout_marginEnd="@dimen/_5sdp"
-            app:layout_constraintEnd_toStartOf="@id/tvIsAcive"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <carbon.widget.TextView
-            android:id="@+id/tvIsAcive"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Active"
-            android:textColor="@color/grey"
-            android:textSize="@dimen/sp18"
-            app:carbon_font="@font/averta_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <carbon.widget.TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Mahesh Gandhi"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCustomerName" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="02:00 PM|Tuesday,20th Sep"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+
+        <TextView
+            android:id="@+id/tvIsAcive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/_1sdp"
+            android:background="@drawable/status_background"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:text="Pending"
+            android:textColor="@color/carbon_deepOrange_500"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/carbon_grey_200"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_height="2dp"/>
     </carbon.widget.ConstraintLayout>
 </layout>

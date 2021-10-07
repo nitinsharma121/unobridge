@@ -29,7 +29,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvIcon"
@@ -44,7 +45,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_7sdp"
                 android:src="@{icon}"
                 app:tint="@color/action_button_color" />
         </androidx.cardview.widget.CardView>
@@ -72,7 +73,7 @@
             android:textColor="@color/input_field_value"
             android:textSize="@dimen/_13sdp"
             app:layout_constraintBottom_toTopOf="@id/tvMessage"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/avProgress"
             app:layout_constraintStart_toEndOf="@id/cvIcon"
             app:layout_constraintTop_toTopOf="@id/cvIcon" />
 
@@ -89,9 +90,20 @@
             android:textColor="@color/input_field_title"
             android:textSize="@dimen/_11sdp"
             app:layout_constraintBottom_toBottomOf="@id/cvIcon"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/avProgress"
             app:layout_constraintStart_toEndOf="@id/cvIcon"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/avProgress"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/cvIcon"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cvIcon"
+            app:lottie_fileName="progress_animation.json"
+            app:lottie_loop="false" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -7,4 +7,5 @@ interface ClickListener {
     fun closeMenu(view: View)
     fun redirect(id: Int?)
     fun openWebsite(view: View)
+    fun openGoogleSearch(view: View)
 }

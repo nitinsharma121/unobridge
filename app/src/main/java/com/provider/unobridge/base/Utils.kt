@@ -5,8 +5,10 @@ import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
 import android.app.TimePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.net.ConnectivityManager
+import android.net.Uri
 import android.os.Looper
 import android.text.InputFilter
 import android.text.Spanned
@@ -47,6 +49,12 @@ class Utils private constructor() {
 
     companion object {
         val init: Utils by lazy { HOLDER.INSTANCE }
+
+        fun Context.openBrowser(url:String){getString(R.string.raju_electrician_website)
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            startActivity(i)
+        }
 
         fun View.disableMultiTap() {
             try {

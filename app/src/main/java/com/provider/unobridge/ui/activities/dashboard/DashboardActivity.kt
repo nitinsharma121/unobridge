@@ -58,7 +58,7 @@ class DashboardActivity : ScopedActivity(), ClickListener, KodeinAware {
                     showToolbar()
                     mBinding.title = "Welcome, Raju Sharma!"
                     mBinding.showRedirection = false
-                    mBinding.tvTitle.setTextColor(resources.getColor(R.color.action_button_color))
+                    setScreenNameColor(R.color.action_button_color)
                 }
                 R.id.customizeWebsiteFragment -> {
                     mBinding.cvToolbar.visibility = GONE
@@ -68,21 +68,25 @@ class DashboardActivity : ScopedActivity(), ClickListener, KodeinAware {
                     showToolbar()
                     mBinding.showRedirection = true
                     mBinding.title = "Order Management"
+                    setScreenNameColor(R.color.input_field_value)
                 }
                 R.id.addOrderFragment -> {
                     showToolbar()
                     mBinding.showRedirection = true
                     mBinding.title = "New Order"
+                    setScreenNameColor(R.color.input_field_value)
                 }
                 R.id.completeOrderFragment -> {
                     showToolbar()
                     mBinding.showRedirection = true
                     mBinding.title = "Job No. EY10333"
+                    setScreenNameColor(R.color.input_field_value)
                 }
                 R.id.financeFragment -> {
                     showToolbar()
                     mBinding.showRedirection = true
                     mBinding.title = "Finance"
+                    setScreenNameColor(R.color.input_field_value)
                 }
                 R.id.finishedOrderFragment -> {
                     mBinding.cvToolbar.visibility = GONE
@@ -92,11 +96,27 @@ class DashboardActivity : ScopedActivity(), ClickListener, KodeinAware {
                     showToolbar()
                     mBinding.showRedirection = true
                     mBinding.title = "Company Details"
+                    setScreenNameColor(R.color.input_field_value)
                 }
                 R.id.summaryFragment -> {
                     showToolbar()
                     mBinding.showRedirection = true
                     mBinding.title = "Raju's Electrical Service"
+                }
+                R.id.customersFragment -> {
+                    showToolbar()
+                    mBinding.showRedirection = true
+                    mBinding.title = "Customers"
+                    setScreenNameColor(R.color.input_field_value)
+                }
+                R.id.payrollFragment -> {
+                    showToolbar()
+                    mBinding.showRedirection = true
+                    mBinding.title = "Payroll"
+                    setScreenNameColor(R.color.input_field_value)
+                }
+                R.id.googleSearchFragment, R.id.googleSearchResultFragment -> {
+                    hideToolbar()
                 }
                 else -> {
                     showToolbar()
@@ -106,9 +126,19 @@ class DashboardActivity : ScopedActivity(), ClickListener, KodeinAware {
         }
     }
 
+    private fun setScreenNameColor(id: Int) {
+        mBinding.tvTitle.setTextColor(resources.getColor(id))
+    }
+
     private fun showToolbar() {
         mBinding.cvToolbar.visibility = VISIBLE
         mBinding.fabSupport.visibility = VISIBLE
+    }
+
+
+    private fun hideToolbar() {
+        mBinding.cvToolbar.visibility = GONE
+        mBinding.fabSupport.visibility = GONE
     }
 
     private fun setupBodyMenu() {
@@ -116,11 +146,11 @@ class DashboardActivity : ScopedActivity(), ClickListener, KodeinAware {
             DrawerMenuItem(
                 resources.getDrawable(R.drawable.ic_dashboard),
                 "Dashboard",
-                R.id.dashboardFragment
+                R.id.summaryFragment
             ),
             DrawerMenuItem(
                 resources.getDrawable(R.drawable.ic_customize_website),
-                "Customize Website",
+                "Update Website",
                 R.id.customizeWebsiteFragment
             ),
             DrawerMenuItem(
@@ -136,17 +166,17 @@ class DashboardActivity : ScopedActivity(), ClickListener, KodeinAware {
             DrawerMenuItem(
                 resources.getDrawable(R.drawable.ic_customer),
                 "Customers",
-                null
+                R.id.customersFragment
+            ),
+            DrawerMenuItem(
+                resources.getDrawable(R.drawable.ic_savings),
+                "Payroll",
+                R.id.payrollFragment
             ),
             DrawerMenuItem(
                 resources.getDrawable(R.drawable.ic_company_details),
                 "Company Details",
                 R.id.companyDetailsFragment
-            ),
-            DrawerMenuItem(
-                resources.getDrawable(R.drawable.ic_summary),
-                "Summary",
-                R.id.summaryFragment
             ),
         )
         mBinding.rvBodyMenu.adapter =
@@ -210,6 +240,11 @@ class DashboardActivity : ScopedActivity(), ClickListener, KodeinAware {
         navController.navigate(R.id.customizeWebsiteFragment)
     }
 
+    override fun openGoogleSearch(view: View) {
+        view.disableMultiTap()
+        navController.navigate(R.id.googleSearchFragment)
+    }
+
     override fun onBackPressed() {
         if (mBinding.dlMenu.isOpen)
             mBinding.dlMenu.closeDrawer(Gravity.LEFT)
@@ -218,9 +253,10 @@ class DashboardActivity : ScopedActivity(), ClickListener, KodeinAware {
     }
 
     fun changeHeaderForDashboard() {
-        mBinding.title = "Raju's Electrical Service"
-        mBinding.showRedirection = true
-        mBinding.tvTitle.setTextColor(resources.getColor(R.color.input_field_value))
+        if (::mBinding.isInitialized) {
+            mBinding.title = "Raju's Electrical Service"
+            mBinding.showRedirection = true
+            mBinding.tvTitle.setTextColor(resources.getColor(R.color.input_field_value))
+        }
     }
-
 }

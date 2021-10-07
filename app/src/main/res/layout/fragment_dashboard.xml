@@ -19,6 +19,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         android:background="@android:color/transparent"
         tools:context=".ui.fragments.dashboard.DashboardFragment">
 
@@ -84,31 +85,33 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_30sdp"
-                            app:icon="@{@drawable/ic_shop}"
+                            app:icon="@{@drawable/ic_numeric_one}"
                             app:iconBackground="@{@color/step_1_color}"
                             app:layout_constraintTop_toBottomOf="@+id/tvTitle"
                             app:message="@{`Select and Launch your Website`}"
                             app:title="@{`Create Website`}"
-                            app:underlineVisibility="@{View.VISIBLE}" />
+                            app:underlineVisibility="@{View.INVISIBLE}" />
 
                         <include
                             android:id="@+id/iSelectBusiness"
                             layout="@layout/layout_dashboard_steps"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:icon="@{@drawable/ic_dashboard}"
+                            android:visibility="gone"
+                            app:icon="@{@drawable/ic_numeric_two}"
                             app:iconBackground="@{@color/step_2_color}"
                             app:layout_constraintTop_toBottomOf="@+id/iCreateWebsite"
                             app:message="@{`Best tools to manage business`}"
                             app:title="@{`Select Business Tools`}"
-                            app:underlineVisibility="@{View.VISIBLE}" />
+                            app:underlineVisibility="@{View.INVISIBLE}" />
 
                         <include
                             android:id="@+id/iManageOperation"
                             layout="@layout/layout_dashboard_steps"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:icon="@{@drawable/ic_manage_operation}"
+                            android:visibility="gone"
+                            app:icon="@{@drawable/ic_numeric_three}"
                             app:iconBackground="@{@color/step_3_color}"
                             app:layout_constraintTop_toBottomOf="@+id/iSelectBusiness"
                             app:message="@{`Set as per your requirement`}"
@@ -262,19 +265,6 @@
                                 app:message="@{`Videos to promote your work`}"
                                 app:title="@{`Add Videos`}"
                                 app:underlineVisibility="@{View.INVISIBLE}" />
-
-                            <include
-                                android:id="@+id/iAddJobs"
-                                layout="@layout/layout_dashboard_post_setup_steps"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:onClick="@{(view)->clickHandler.addJobs(view)}"
-                                app:icon="@{@drawable/ic_calender_mark}"
-                                app:iconBackground="@{@color/stats_down_color}"
-                                app:layout_constraintTop_toBottomOf="@+id/iAddVideo"
-                                app:message="@{`To create new jobs`}"
-                                app:title="@{`Add Jobs`}"
-                                app:underlineVisibility="@{View.GONE}" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.cardview.widget.CardView>

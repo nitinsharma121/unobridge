@@ -111,7 +111,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:background="@android:color/transparent"
-                            app:inputValue="@{`102 Kodihalli, Near Ramanagar, Banaglore`}"
+                            app:inputValue="@{`102 Kodihalli, Near Ramanagar, Bengaluru`}"
                             app:layout_constraintTop_toBottomOf="@+id/iPhone"
                             app:lines="@{2}"
                             app:textSize="@{@dimen/_13sdp}"

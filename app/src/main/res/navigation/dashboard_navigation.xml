@@ -45,7 +45,7 @@
         tools:layout="@layout/fragment_finished_order" />
     <fragment
         android:id="@+id/customizeWebsiteFragment"
-        android:name="com.provider.unobridge.ui.fragments.customizeWebsite.CustomizeWebsiteFragment"
+        android:name="com.provider.unobridge.ui.fragments.customizeWebsite.UpdateWebsiteFragment"
         android:label="CustomizeWebsiteFragment" />
     <fragment
         android:id="@+id/companyDetailsFragment"
@@ -56,6 +56,29 @@
         android:name="com.provider.unobridge.ui.fragments.summary.SummaryFragment"
         android:label="fragment_summary"
         tools:layout="@layout/fragment_summary" />
+    <fragment
+        android:id="@+id/googleSearchFragment"
+        android:name="com.provider.unobridge.ui.fragments.googleSearch.GoogleSearchFragment"
+        android:label="GoogleSearchFragment" />
+    <fragment
+        android:id="@+id/googleSearchResultFragment"
+        android:name="com.provider.unobridge.ui.fragments.googleSearch.GoogleSearchResultFragment"
+        android:label="fragment_google_seach_result"
+        tools:layout="@layout/fragment_google_seach_result" />
+    <fragment
+        android:id="@+id/customersFragment"
+        android:name="com.provider.unobridge.ui.fragments.customers.CustomersFragment"
+        android:label="CustomersFragment" />
+    <fragment
+        android:id="@+id/payrollFragment"
+        android:name="com.provider.unobridge.ui.fragments.payroll.PayrollFragment"
+        android:label="PayrollFragment" >
+        <action
+            android:id="@+id/action_payrollFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment"
+            app:popUpTo="@+id/summaryFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
 
 
 </navigation>

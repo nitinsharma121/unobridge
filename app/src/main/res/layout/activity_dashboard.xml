@@ -124,6 +124,7 @@
                 android:id="@+id/fabSupport"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
+                android:onClick="@{(view)->clickHandler.openGoogleSearch(view)}"
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@drawable/fab_background"

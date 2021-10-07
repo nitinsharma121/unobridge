@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Unobridge</string>
+    <string name="app_name">unobridge</string>
     <string name="app_name_subtitle">You Be Ahead</string>
     <string name="idol_cabs">Idol Cabs</string>
     <string name="fake_number">9999999999</string>
@@ -153,6 +153,11 @@
     <string name="share_details">Share Details</string>
     <string name="share_via_whatsapp">Share via Whatsapp</string>
     <string name="key_updated_dashboard">updated_dashboard</string>
+    <string name="employee_details">Employee Details</string>
+    <string name="txt_salary">Salary</string>
+    <string name="txt_contract_type">Contract Type</string>
+    <string name="txt_payment_date">Payment Date</string>
+    <string name="txt_done">Done</string>
 
 
 </resources>

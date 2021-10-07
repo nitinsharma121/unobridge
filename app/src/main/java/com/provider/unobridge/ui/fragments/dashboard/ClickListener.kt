@@ -8,5 +8,4 @@ interface ClickListener {
     fun addOffer(view: View)
     fun uploadImage(view: View)
     fun addVideo(view: View)
-    fun addJobs(view: View)
 }

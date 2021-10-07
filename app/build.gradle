@@ -133,5 +133,7 @@ dependencies {
     //Shimmer Layout
     implementation 'com.facebook.shimmer:shimmer:0.5.0@aar'
 
+    //Lotte Animations
+    implementation "com.airbnb.android:lottie:3.4.0"
 
 }
